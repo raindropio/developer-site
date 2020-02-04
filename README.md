@@ -15,6 +15,8 @@ This API relies on standard HTTP response codes to indicate operation result. Th
 | 4xx | The request was processed with an error and should not be retried unmodified as they won’t be processed any different by an API. |
 | 5xx | The request failed due to a server error, it’s safe to retry later. |
 
-  
+All `200 OK` responses have the `Content-type: application/json` and contain a JSON-encoded representation of one or more objects.
+
+Payload of POST requests has to be JSON-encoded and accompanied with `Content-Type: application/json` header.  
 
 
