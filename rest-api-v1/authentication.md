@@ -1,4 +1,8 @@
 # Authentication
 
-The Raindrop.io API uses the OAuth 2.0 protocol for simple, but effective authentication and authorization. The one thing to keep in mind is that all requests to the API must be made over SSL \(https:// not http://\).
+In order to make authorized calls to Raindrop.io APIs, your application must first obtain an access token from the users. This section describes the different ways of obtaining such a token.
+
+For the sake of simplicity we decided to not list the token on every parameter table but please note that the **token is required for every resource**.
+
+Note that we encourage your application to use the [OAuth](http://en.wikipedia.org/wiki/OAuth) protocol to obtain the access token from the user.
 
