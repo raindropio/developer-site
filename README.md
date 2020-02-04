@@ -4,7 +4,7 @@ This is the official documentation for Raindrop.io API. A reference to the funct
 
 Please note that you must [register your application](https://raindrop.io) and authenticate with OAuth when making requests. Before doing so, be sure to read our [Terms & Guidelines](terms-and-guidelines.md) to learn how the API may be used.
 
-### Request and response format
+### Format
 
 API endpoints accept arguments either as url-encoded values for non-POST requests or as json-encoded objects encoded in POST request body with `Content-Type: application/json` header.
 
@@ -34,15 +34,34 @@ Payload of POST requests has to be JSON-encoded and accompanied with `Content-Ty
 
 For requests using OAuth, you can make up to 120 requests per minute per authenticated user.
 
-You can check the returned HTTP headers of any API request to see your current per minute rate limit status:
+The headers tell you everything you need to know about your current rate limit status:
 
-```bash
-HTTP/1.1 200 OK
-Status: 200 OK
+| Header name | Description |
+| :--- | :--- |
+| X-RateLimit-Limit | The maximum number of requests that the consumer is permitted to make per minute. |
+| RateLimit-Remaining | The number of requests remaining in the current rate limit window. |
+| X-RateLimit-Reset | The time at which the current rate limit window resets in UTC epoch seconds. |
+
+Once you go over the rate limit you will receive an error response:
+
+```text
+HTTP/1.1 429 Too Many Requests
+Status: 429 Too Many Requests
 X-RateLimit-Limit: 120
-X-RateLimit-Remaining: 59
+X-RateLimit-Remaining: 0
 X-RateLimit-Reset: 1392321600
 ```
 
+### CORS <a id="cross-origin-resource-sharing"></a>
 
+The API supports Cross Origin Resource Sharing \(CORS\) for AJAX requests. You can read the [CORS W3C working draft](http://www.w3.org/TR/cors), or [this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the HTML 5 Security Guide.
+
+Here’s a sample request sent from a browser hitting `http://example.com`:
+
+```text
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Expose-Headers: ETag, Content-Type, Accept, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset
+Access-Control-Allow-Credentials: true
+```
 
