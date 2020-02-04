@@ -2,6 +2,8 @@
 
 This is the official documentation for Raindrop.io API. A reference to the functionality our public API provides with detailed description of each API endpoint, parameters, and examples.
 
+Please note that you must [register your application](https://raindrop.io) and authenticate with OAuth when making requests. Before doing so, be sure to read our [Terms & Guidelines](https://developer.dribbble.com/terms/) to learn how the API may be used.
+
 ### Request and response format
 
 API endpoints accept arguments either as url-encoded values for non-POST requests or as json-encoded objects encoded in POST request body with `Content-Type: application/json` header.
