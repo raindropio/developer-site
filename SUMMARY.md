@@ -6,4 +6,5 @@
 ## Rest API v1
 
 * [Authentication](rest-api-v1/authentication.md)
+* [Collections](rest-api-v1/collections.md)
 
