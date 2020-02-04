@@ -4,11 +4,11 @@
 
 #### DO <a id="do"></a>
 
-We encourage you to build applications that **extend** Raindrop.io to platforms beyond the web and offer services that Raindrop.io does not.
+I encourage you to build applications that **extend** Raindrop.io to platforms beyond the web and offer services that Raindrop.io does not.
 
 #### DON’T <a id="dont"></a>
 
-Don’t build what I’re building. I invested a lot of time, money and hard work in Raindrop.io. I rely on Raindrop.io for income. As such, do not build an application, website, product, or business that attempts to harm, compete with, or replace Raindrop.io, website, or services.
+Don’t build what I’ve building. I invested a lot of time, money and hard work in Raindrop.io. I rely on Raindrop.io for income. As such, do not build an application, website, product, or business that attempts to harm, compete with, or replace Raindrop.io, website, or services.
 
 In particular, do not use the API, or any Raindrop.io data, to build the following:
 
