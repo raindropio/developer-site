@@ -6,7 +6,7 @@ Get all collections
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Returns JSON-encoded array containing all user collections
 {% endapi-method-description %}
 
 {% api-method-spec %}
