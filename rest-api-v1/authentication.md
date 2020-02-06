@@ -39,13 +39,13 @@ The unique Client ID of the Raindrop.io app that you registered
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=307 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}
 
 ```
-
+Location: $redirect_uri?code={CODE}&error={ERROR}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -138,7 +138,7 @@ Step 5: Refresh access token
 {% endapi-method-summary %}
 
 {% api-method-description %}
-For security reasons `access_token` will **expire after two weeks**. In this case you should request the new one, by calling `POST` request with such parameters
+For security reasons access tokens \(except "test tokens"\) will **expire after two weeks**. In this case you should request the new one, by calling `POST` request with such parameters:
 {% endapi-method-description %}
 
 {% api-method-spec %}
