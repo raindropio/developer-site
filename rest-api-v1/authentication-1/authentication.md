@@ -1,10 +1,4 @@
-# Authentication
-
-In order to make authorized calls to Raindrop.io APIs, your application must first obtain an **access token** from the users. This section describes how to get such a token.
-
-Note that we encourage your application to use the [OAuth](http://en.wikipedia.org/wiki/OAuth) protocol to obtain the access token from the user.
-
-## OAuth
+# Obtain access token
 
 External applications could obtain a user authorized API token via the OAuth2 protocol. Before getting started, developers need to create their applications in [App Management Console](https://raindrop.io) and configure a valid OAuth redirect URL. A registered Raindrop.io application is assigned a unique `Client ID` and `Client Secret` which are needed for the OAuth2 flow.
 
@@ -127,10 +121,6 @@ Occurs when `code` parameter is invalid
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-### Step 4: 🎉 Make authorized requests!
-
-Now you have `access_token` and you can make authorized calls to API. Be sure to include it in [authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) with value `Bearer access_token` with each call you make.
 
 {% api-method method="post" host="https://raindrop.io" path="/oauth/access\_token" %}
 {% api-method-summary %}
