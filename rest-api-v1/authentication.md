@@ -41,11 +41,11 @@ The unique Client ID of the Raindrop.io app that you registered
 {% api-method-response %}
 {% api-method-response-example httpCode=307 %}
 {% api-method-response-example-description %}
-
+Check details in Step 2
 {% endapi-method-response-example-description %}
 
 ```
-Location: $redirect_uri?code={CODE}&error={ERROR}
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
