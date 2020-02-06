@@ -1,8 +1,95 @@
 # Authentication
 
-In order to make authorized calls to Raindrop.io APIs, your application must first obtain an access token from the users. This section describes the different ways of obtaining such a token.
+In order to make authorized calls to Raindrop.io APIs, your application must first obtain an access token from the users or use your [personal API token](https://raindrop.io). This section describes the different ways of obtaining such a token.
 
 For the sake of simplicity we decided to not list the token on every parameter table but please note that the **token is required for every resource**.
 
 Note that we encourage your application to use the [OAuth](http://en.wikipedia.org/wiki/OAuth) protocol to obtain the access token from the user.
+
+### OAuth
+
+External applications could obtain a user authorized API token via the OAuth2 protocol. Before getting started, developers need to create their applications in [App Management Console](https://raindrop.io) and configure a valid OAuth redirect URL. A registered Raindrop.io application is assigned a unique `Client ID` and `Client Secret` which are needed for the OAuth2 flow.
+
+This procedure is comprised of 3 steps, which will be described below.
+
+{% api-method method="get" host="https://raindrop.io" path="/oauth/authorize" %}
+{% api-method-summary %}
+Step 1: The authorization request
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Redirect users to this authorization URL with specified request parameters
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="redirect\_uri" type="string" required=true %}
+Redirect URL configured in your application setting
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="client\_id" type="string" required=true %}
+The unique Client ID of the Raindrop.io app that you registered
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+#### Step 2: The redirection to your application site
+
+When the user grants your authorization request, the user will be redirected to the redirect URL configured in your application setting. The redirect request will come with query parameter attached: `code` .
+
+The `code` parameter contains the authorization code that you will use to exchange for an access token.
+
+In case of error redirect request will come with `error` query parameter:
+
+| Error | Description |
+| :--- | :--- |
+| access\_denied | When the user denies your authorization request |
+| invalid\_application\_status | When your application exceeds the maximum token limit or when your application is being suspended due to abuse |
+
+{% api-method method="post" host="https://raindrop.io" path="/oauth/access\_token" %}
+{% api-method-summary %}
+Step 3: The token exchange
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Once you have the authorization \`code\`, you can exchange it for the \`access\_token\` by doing a \`POST\` request to this URL
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 
