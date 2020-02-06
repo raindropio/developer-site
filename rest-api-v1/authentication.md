@@ -8,7 +8,13 @@ Note that we encourage your application to use the [OAuth](http://en.wikipedia.o
 
 External applications could obtain a user authorized API token via the OAuth2 protocol. Before getting started, developers need to create their applications in [App Management Console](https://raindrop.io) and configure a valid OAuth redirect URL. A registered Raindrop.io application is assigned a unique `Client ID` and `Client Secret` which are needed for the OAuth2 flow.
 
-This procedure is comprised of 3 steps, which will be described below.
+This procedure is comprised of several steps, which will be described below.
+
+{% hint style="info" %}
+If you just want to test your application, or do not plan to access any data except yours account you don't need to make all of those steps.
+
+Just go to [App Management Console](https://raindrop.io) and open your application settings. Copy **Test token** and use it as described in **Step 4.**
+{% endhint %}
 
 {% api-method method="get" host="https://raindrop.io" path="/oauth/authorize" %}
 {% api-method-summary %}
