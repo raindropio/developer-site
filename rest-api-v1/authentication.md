@@ -128,13 +128,13 @@ Occurs when `code` parameter is invalid
 {% endapi-method-spec %}
 {% endapi-method %}
 
-### Step 4: Make authorized requests!
+### Step 4: 🎉 Make authorized requests!
 
 Now you have `access_token` and you can make authorized calls to API. Be sure to include it in [authorization header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization) with value `Bearer access_token` with each call you make.
 
 {% api-method method="post" host="https://raindrop.io" path="/oauth/access\_token" %}
 {% api-method-summary %}
-Optional: The access token refresh
+Optional: ♻️ The access token refresh
 {% endapi-method-summary %}
 
 {% api-method-description %}
