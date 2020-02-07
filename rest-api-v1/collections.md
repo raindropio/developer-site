@@ -25,6 +25,12 @@
       </td>
     </tr>
     <tr>
+      <td style="text-align:left">access</td>
+      <td style="text-align:left"><code>Object</code>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
       <td style="text-align:left">access.level</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
@@ -45,6 +51,12 @@
       <td style="text-align:left">Does it possible to change parent of this collection?</td>
     </tr>
     <tr>
+      <td style="text-align:left">collaborators</td>
+      <td style="text-align:left"><code>Object</code>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
       <td style="text-align:left">collaborators.$id</td>
       <td style="text-align:left"><code>String</code>
       </td>
@@ -54,7 +66,7 @@
       <td style="text-align:left">color</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">Primary color of collection icon as <code>HEX</code>
+      <td style="text-align:left">Primary color of collection cover as <code>HEX</code>
       </td>
     </tr>
     <tr>
@@ -67,7 +79,7 @@
       <td style="text-align:left">cover</td>
       <td style="text-align:left"><code>Array&lt;String&gt;</code>
       </td>
-      <td style="text-align:left">Collection icon.
+      <td style="text-align:left">Collection cover.
         <br />This array always have one item due to legacy reasons</td>
     </tr>
     <tr>
@@ -87,6 +99,12 @@
       <td style="text-align:left"><code>String</code>
       </td>
       <td style="text-align:left">When collection is updated</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">parent</td>
+      <td style="text-align:left"><code>Object</code>
+      </td>
+      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">parent.$id</td>
@@ -113,6 +131,12 @@
       <td style="text-align:left"><code>String</code>
       </td>
       <td style="text-align:left">Name of the collection</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">user</td>
+      <td style="text-align:left"><code>Object</code>
+      </td>
+      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left">user.$id</td>
@@ -258,7 +282,7 @@ Get single collection
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=false %}
+{% api-method-parameter name="id" type="number" required=true %}
 Collection ID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -324,7 +348,7 @@ Create a new collection
 More details in "Properties"
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="title" type="string" required=true %}
+{% api-method-parameter name="title" type="string" required=false %}
 Name of the collection
 {% endapi-method-parameter %}
 
@@ -341,7 +365,7 @@ The ID of parent collection. Empty for root collections
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="cover" type="array" required=false %}
-Collection icon url
+Collection cover url
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -356,7 +380,7 @@ Collection icon url
 {
     "result": true,
     "item": {
-        
+        ...
     }
 }
 ```
@@ -391,7 +415,7 @@ Update an existing collection
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=false %}
+{% api-method-parameter name="id" type="number" required=true %}
 Existing collection id
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -422,7 +446,7 @@ The ID of parent collection. Empty for root collections
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="cover" type="array" required=false %}
-Collection icon url
+Collection cover url
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -437,7 +461,56 @@ Collection icon url
 {
     "result": true,
     "item": {
-        
+        ...
+    }
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/:id/cover" %}
+{% api-method-summary %}
+Upload cover for single collection
+{% endapi-method-summary %}
+
+{% api-method-description %}
+It's possible to upload cover from desktop. PNG, GIF and JPEG supported
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="string" required=true %}
+Existing collection ID
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+multipart/form-data
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="cover" type="object" required=true %}
+File
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "result": true,
+    "item": {
+        ...
     }
 }
 ```
@@ -459,7 +532,7 @@ Raindrops will be moved to "Trash" collection
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=false %}
+{% api-method-parameter name="id" type="number" required=true %}
 Existing collection ID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -546,6 +619,35 @@ Expand/collapse all collections
 ```javascript
 {
     "result": true
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collections/clean" %}
+{% api-method-summary %}
+Remove all empty collections
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "result": true,
+    "count": 3
 }
 ```
 {% endapi-method-response-example %}
