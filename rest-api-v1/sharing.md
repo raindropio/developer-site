@@ -1,8 +1,50 @@
 # Sharing
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
+Collection can be shared with other users, which are then called collaborators, and this section describes the different commands that are related to sharing.
+
+### Collaborators
+
+Every user who shares at least one collection with another user, has a collaborators record in the API response. The record contains a restricted subset of user-specific properties.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">_id</td>
+      <td style="text-align:left">User ID of the collaborator</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">email</td>
+      <td style="text-align:left">
+        <p>Email of the collaborator</p>
+        <p>Empty when authorized user have read-only access</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">email_MD5</td>
+      <td style="text-align:left">MD5 hash of collaborator email. Useful for using with Gravatar for example</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">fullName</td>
+      <td style="text-align:left">Full name of the collaborator</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">role</td>
+      <td style="text-align:left">
+        <p>Access level:</p>
+        <p><b><code>member</code></b> have write access and can invite more users</p>
+        <p><b><code>viewer</code></b> read-only access</p>
+      </td>
+    </tr>
+  </tbody>
+</table>{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
 {% api-method-summary %}
-Get collaborators of collection
+Get collaborators list of collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -32,8 +74,6 @@ Existing collection ID
       "email": "some@mail.com",
       "email_MD5": "e12bda18ca265d3f3e30d247adea2549",
       "fullName": "Jakie Future",
-      "level": 2,
-      "pro": false,
       "registered": "2019-08-18T17:01:43.664Z",
       "role": "viewer"
     }
@@ -66,8 +106,8 @@ Existing collection ID
 {% api-method-body-parameters %}
 {% api-method-parameter name="role" type="string" required=true %}
 Possible values:  
-**`member`** - write access  
-**`viewer`** - read only access
+**`member`**  
+**`viewer`**
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="emails" type="array" required=true %}
@@ -149,6 +189,88 @@ Unshare or leave collection
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
+{% api-method-parameter name="id" type="number" required=true %}
+Existing collection ID
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "result": true
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing/:userId" %}
+{% api-method-summary %}
+Change access level of collaborator
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="userId" type="number" required=false %}
+User ID of collaborator
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="id" type="number" required=true %}
+Existing collection ID
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="role" type="string" required=true %}
+**`member`** or **`viewer`**
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "result": true
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing/:userId" %}
+{% api-method-summary %}
+Delete a collaborator
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="userId" type="number" required=false %}
+User ID of collaborator
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="id" type="number" required=true %}
 Existing collection ID
 {% endapi-method-parameter %}
