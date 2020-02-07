@@ -5,7 +5,7 @@
 | Field | Publicly visible | Type | Description |
 | :--- | :--- | :--- | :--- |
 | \_id | **Yes** | Integer | Unique user ID |
-| config | No | Object | More details below in "Config fields" |
+| config | No | Object | More details in "Config fields" |
 | email | No | String | Only visible for you |
 | email\_MD5 | **Yes** | String | MD5 hash of email. Useful for using with Gravatar for example |
 | files.used | No | Integer |  |
@@ -13,10 +13,10 @@
 | files.lastCheckPoint | No | String |  |
 | fullName | **Yes** | String | Full name |
 | groups | No | Array | More details below in "Groups format" |
-| password | No | Boolean |  |
+| password | No | Boolean | Does user have set a password |
 | pro | **Yes** | Boolean |  |
-| proExpire | No | String |  |
-| registered | No | String |  |
+| proExpire | No | String | When PRO plan will expire |
+| registered | No | String | Registration date |
 
 ### Config fields
 
@@ -117,11 +117,11 @@ Get currently authenticated user details
 
 {% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/:id" %}
 {% api-method-summary %}
-Get user details by ID
+Get user by ID
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Get's publicly available user data
+Get's publicly available user details
 {% endapi-method-description %}
 
 {% api-method-spec %}
