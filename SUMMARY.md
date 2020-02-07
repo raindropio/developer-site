@@ -12,9 +12,9 @@
 * [Raindrops](rest-api-v1/raindrops-1/README.md)
   * [Single raindrop](rest-api-v1/raindrops-1/raindrops.md)
   * [Multiple raindrops](rest-api-v1/raindrops-1/multiple-raindrops.md)
+* [Tags](rest-api-v1/tags.md)
 * [Users](rest-api-v1/users.md)
 * [Sharing](rest-api-v1/sharing.md)
 * [Filters](rest-api-v1/filters.md)
-* [Tags](rest-api-v1/tags.md)
 * [Import](rest-api-v1/import.md)
 
