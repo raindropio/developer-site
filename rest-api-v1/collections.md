@@ -310,7 +310,7 @@ Collection ID
 
 {% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection" %}
 {% api-method-summary %}
-Create collection
+Create single collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -381,7 +381,7 @@ Incorrect 'view' field value
 
 {% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/:id" %}
 {% api-method-summary %}
-Update collection
+Update single collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -397,6 +397,10 @@ Existing collection id
 {% endapi-method-path-parameters %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="expanded" type="boolean" required=false %}
+Whether the collection\`s sub-collections are expanded
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="view" type="string" required=false %}
 More details in "Properties"
 {% endapi-method-parameter %}
@@ -444,7 +448,7 @@ Collection icon url
 
 {% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/:id" %}
 {% api-method-summary %}
-Remove collection
+Remove single collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -457,6 +461,78 @@ Raindrops will be moved to "Trash" collection
 {% api-method-path-parameters %}
 {% api-method-parameter name="id" type="number" required=false %}
 Existing collection ID
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "result": true
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collections" %}
+{% api-method-summary %}
+Reorder all collections
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Updates order of all collections 
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-body-parameters %}
+{% api-method-parameter name="sort" type="string" required=false %}
+Change order of all collections.  
+Possible values:  
+"title" - sort alphabetically ascending  
+"-title" - sort alphabetically descending  
+"-count" - sort by raindrops count descending
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "result": true
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collections" %}
+{% api-method-summary %}
+Expand/collapse all collections
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="expanded" type="boolean" required=false %}
+
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
