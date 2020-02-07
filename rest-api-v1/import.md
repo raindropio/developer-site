@@ -16,7 +16,7 @@ Gets title, description, image and other details from any URL
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-query-parameters %}
-{% api-method-parameter name="url" type="string" required=false %}
+{% api-method-parameter name="url" type="string" required=true %}
 URL
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
@@ -112,7 +112,7 @@ Will check does specified URL's are already exists in any collection
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="urls" type="array" required=false %}
+{% api-method-parameter name="urls" type="array" required=true %}
 URL's
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -150,13 +150,13 @@ Support Nestcape, Pocket and Instapaper file formats
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-headers %}
-{% api-method-parameter name="Content-Type" type="string" required=false %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
 multipart/form-data
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
 {% api-method-form-data-parameters %}
-{% api-method-parameter name="import" type="string" required=false %}
+{% api-method-parameter name="import" type="string" required=true %}
 File
 {% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
