@@ -82,7 +82,7 @@
       <td style="text-align:left">When collection is updated</td>
     </tr>
     <tr>
-      <td style="text-align:left">parent_id</td>
+      <td style="text-align:left">parent.$id</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
       <td style="text-align:left">The id of the parent collection. Empty for root collection</td>
@@ -98,7 +98,7 @@
       <td style="text-align:left"><code>Integer</code>
       </td>
       <td style="text-align:left">The order of collection (descending). Defines the position of the collection
-        among all the collections with the same <code>parent_id</code>
+        among all the collections with the same <code>parent.$id</code>
       </td>
     </tr>
     <tr>
@@ -241,7 +241,7 @@ Returns JSON-encoded array containing all nested collections
 
 {% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/:id" %}
 {% api-method-summary %}
-Get collection by id
+Get single collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -322,14 +322,14 @@ Name of the collection
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="sort" type="number" required=false %}
-The order of collection \(descending\). Defines the position of the collection among all the collections with the same `parent_id`
+The order of collection \(descending\). Defines the position of the collection among all the collections with the same `parent.$id`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="public" type="boolean" required=false %}
 Collection and raindrops that it contains will be accessible without authentication?
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="parent\_id" type="integer" required=false %}
+{% api-method-parameter name="parent.$id" type="integer" required=false %}
 The ID of parent collection. Empty for root collections
 {% endapi-method-parameter %}
 
@@ -345,30 +345,61 @@ Collection icon url
 
 {% endapi-method-response-example-description %}
 
-```
-
+```javascript
+{
+    "result": true,
+    "item": {
+        
+    }
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/:id" %}
 {% api-method-summary %}
-
+Update collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Update an existing collection
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="cover" type="array" required=false %}
-/
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="number" required=false %}
+Existing collection id
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+{% endapi-method-path-parameters %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="view" type="string" required=false %}
+More details in "Properties"
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="title" type="string" required=false %}
+Name of the collection
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="sort" type="number" required=false %}
+The order of collection \(descending\). Defines the position of the collection among all the collections with the same `parent.$id`
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="public" type="boolean" required=false %}
+Collection and raindrops that it contains will be accessible without authentication?
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="parent.$id" type="integer" required=false %}
+The ID of parent collection. Empty for root collections
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="cover" type="array" required=false %}
+Collection icon url
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -377,11 +408,18 @@ Collection icon url
 
 {% endapi-method-response-example-description %}
 
-```
-
+```javascript
+{
+    "result": true,
+    "item": {
+        
+    }
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+
 
