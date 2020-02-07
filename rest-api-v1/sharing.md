@@ -42,57 +42,13 @@ Every user who shares at least one collection with another user, has a collabora
       </td>
     </tr>
   </tbody>
-</table>{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
-{% api-method-summary %}
-Get collaborators list of collection
-{% endapi-method-summary %}
-
-{% api-method-description %}
-
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
-Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```javascript
-{
-  "items": [
-    {
-      "_id": 373381,
-      "email": "some@mail.com",
-      "email_MD5": "e12bda18ca265d3f3e30d247adea2549",
-      "fullName": "Jakie Future",
-      "registered": "2019-08-18T17:01:43.664Z",
-      "role": "viewer"
-    }
-  ],
-  "result": true
-}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
+</table>{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
 {% api-method-summary %}
 Share collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Share collection with another user\(s\)
+Share collection with another user\(s\). As result invitation\(s\) will be send to specified email\(s\) with link to join collection.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -105,7 +61,7 @@ Existing collection ID
 
 {% api-method-body-parameters %}
 {% api-method-parameter name="role" type="string" required=true %}
-Possible values:  
+Access level. Possible values:  
 **`member`**  
 **`viewer`**
 {% endapi-method-parameter %}
@@ -170,6 +126,50 @@ Maximum 10
 {
     "result": false,
     "errorMessage": "you dont have permissions to invite more people"
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
+{% api-method-summary %}
+Get collaborators list of collection
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="number" required=true %}
+Existing collection ID
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+  "items": [
+    {
+      "_id": 373381,
+      "email": "some@mail.com",
+      "email_MD5": "e12bda18ca265d3f3e30d247adea2549",
+      "fullName": "Jakie Future",
+      "registered": "2019-08-18T17:01:43.664Z",
+      "role": "viewer"
+    }
+  ],
+  "result": true
 }
 ```
 {% endapi-method-response-example %}
