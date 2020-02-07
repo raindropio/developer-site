@@ -9,12 +9,12 @@ description: >-
 
 ### Collaborators
 
-Every user who shares at least one collection with another user, has a collaborators record in the API response. The record contains a restricted subset of user-specific properties.
+Every user who shares at least one collection with another user, has a collaborators record in the API response. The record contains a restricted subset of user-specific fields.
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Property</th>
+      <th style="text-align:left">Field</th>
       <th style="text-align:left">Description</th>
     </tr>
   </thead>
