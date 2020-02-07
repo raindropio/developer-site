@@ -1,5 +1,138 @@
 # Import
 
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/import/url/parse" %}
+{% api-method-summary %}
+Parse URL
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Gets title, description, image and other details from any URL
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="url" type="string" required=false %}
+URL
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+//Success
+{
+  "item": {
+    "title": "Яндекс",
+    "excerpt": "Найдётся всё",
+    "media": [
+      {
+        "type": "image",
+        "link": "http://yastatic.net/s3/home/logos/share/share-logo_ru.png"
+      }
+    ],
+    "type": "link",
+    "meta": {
+      "possibleArticle": false,
+      "canonical": "https://ya.ru",
+      "site": "Яндекс",
+      "tags": []
+    }
+  },
+  "result": true
+}
+
+//Invalid URL
+{
+  "error": "not_found",
+  "errorMessage": "invalid_url",
+  "item": {
+    "title": "Fdfdfdf",
+    "excerpt": "",
+    "media": [
+      {
+        "link": "<screenshot>"
+      }
+    ],
+    "type": "link",
+    "parser": "local",
+    "meta": {
+      "possibleArticle": false,
+      "tags": []
+    }
+  },
+  "result": true
+}
+
+//Not found
+{
+  "error": "not_found",
+  "errorMessage": "url_status_404",
+  "item": {
+    "title": "Some",
+    "excerpt": "",
+    "media": [
+      {
+        "link": "<screenshot>"
+      }
+    ],
+    "type": "link",
+    "parser": "local",
+    "meta": {
+      "possibleArticle": false,
+      "tags": []
+    }
+  },
+  "result": true
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/import/url/exists" %}
+{% api-method-summary %}
+Check URL\(s\) existence 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Will check does specified URL's are already exists in any collection
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="urls" type="array" required=false %}
+URL's
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "ids": [
+        3322,
+        12323
+    ]
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/import/file" %}
 {% api-method-summary %}
 Parse HTML import file
