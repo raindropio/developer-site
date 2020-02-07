@@ -63,7 +63,7 @@ New name
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="tags" type="array" required=true %}
-Specify array with one string \(name of a tag\)
+Specify **array** with **only one** string \(name of a tag\)
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
