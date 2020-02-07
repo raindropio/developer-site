@@ -566,7 +566,7 @@ Updates order of all collections
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
-{% api-method-parameter name="sort" type="string" required=false %}
+{% api-method-parameter name="sort" type="string" required=true %}
 Change order of all collections.  
 Possible values:  
 "title" - sort alphabetically ascending  
@@ -604,8 +604,9 @@ Expand/collapse all collections
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="expanded" type="boolean" required=false %}
-
+{% api-method-parameter name="expanded" type="boolean" required=true %}
+TRUE = expand all  
+FALSE = collapse all
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
