@@ -13,7 +13,7 @@ Get tags
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="collectionId" type="number" required=false %}
-Optional collection ID, when not specified all tags will be retrieved
+Optional collection ID, when not specified all tags from all collections will be retrieved
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
