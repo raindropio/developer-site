@@ -155,7 +155,7 @@ Our API response could contain **other fields**, not described above. It's **uns
 
 ### System collections
 
-Every user have several system non-removable collections:
+Every user have several system non-removable collections. They are not contained in any API responses.
 
 | \_id | Description |
 | :--- | :--- |
@@ -652,6 +652,34 @@ Remove all empty collections
 {
     "result": true,
     "count": 3
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/-99" %}
+{% api-method-summary %}
+Empty Trash
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    "result": true
 }
 ```
 {% endapi-method-response-example %}
