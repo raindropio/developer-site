@@ -51,7 +51,7 @@ Authenticated user
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Get currently authenticated user details
 {% endapi-method-description %}
 
 {% api-method-spec %}
