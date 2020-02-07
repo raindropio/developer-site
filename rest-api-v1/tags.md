@@ -90,7 +90,7 @@ Merge tags
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Basically this action rename bunch of `tags` to new name \(`replace` field\)
 {% endapi-method-description %}
 
 {% api-method-spec %}
