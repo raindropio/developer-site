@@ -1,6 +1,11 @@
-# Sharing
+---
+description: >-
+  Collection can be shared with other users, which are then called
+  collaborators, and this section describes the different commands that are
+  related to sharing.
+---
 
-Collection can be shared with other users, which are then called collaborators, and this section describes the different commands that are related to sharing.
+# Sharing
 
 ### Collaborators
 
@@ -183,7 +188,9 @@ Unshare or leave collection
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+There two possible results of calling this method, depends on who authenticated user is:  
+- **Owner**: collection will be unshared and all collaborators will be removed  
+- **Member or viewer**: authenticated user will be removed from collaborators list
 {% endapi-method-description %}
 
 {% api-method-spec %}
