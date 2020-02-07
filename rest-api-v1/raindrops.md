@@ -6,107 +6,24 @@ description: We call bookmarks (or items) as "raindrops"
 
 ### Main properties
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Property</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">_id</td>
-      <td style="text-align:left"><code>Integer</code>
-      </td>
-      <td style="text-align:left">Unique identifier</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">collection</td>
-      <td style="text-align:left"><code>Object</code>
-      </td>
-      <td style="text-align:left">&#x200B;</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">collection.$id</td>
-      <td style="text-align:left"><code>Integer</code>
-      </td>
-      <td style="text-align:left">Collection that the raindrop resides in</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">cover</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">Raindrop cover URL</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">domain</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">Domain name of link</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">excerpt</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">Description</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">lastUpdate</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">When bookmark is created. Unfortunately we doesn&apos;t have separate <code>creation</code> date
-        field yet.</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">link</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">URL</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">media</td>
-      <td style="text-align:left"><code>Array</code>
-      </td>
-      <td style="text-align:left">&#x200B;List of possible covers in format: <code>[ {&quot;link&quot;:&quot;url&quot;} ]</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">tags</td>
-      <td style="text-align:left"><code>Array</code>
-      </td>
-      <td style="text-align:left">Tags list</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">title</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">Title</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">type</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">
-        <p>Can be:</p>
-        <p><code>link</code>  <code>article</code>  <code>image</code>  <code>video</code>  <code>document</code> or <code>audio</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">user</td>
-      <td style="text-align:left"><code>Object</code>
-      </td>
-      <td style="text-align:left">&#x200B;</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">user.$id</td>
-      <td style="text-align:left"><code>Integer</code>
-      </td>
-      <td style="text-align:left">Owner of raindrop</td>
-    </tr>
-  </tbody>
-</table>### Other properties
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| \_id | `Integer` | Unique identifier |
+| collection | `Object` | ​ |
+| collection.$id | `Integer` | Collection that the raindrop resides in |
+| cover | `String` | Raindrop cover URL |
+| domain | `String` | Domain name of link |
+| excerpt | `String` | Description |
+| lastUpdate | `String` | When bookmark is created. Unfortunately we doesn't have separate `creation` date field yet. |
+| link | `String` | URL |
+| media | `Array` | ​List of possible covers in format: `[ {"link":"url"} ]` |
+| tags | `Array` | Tags list |
+| title | `String` | Title |
+| type | `String` | `link` `article` `image` `video` `document` or `audio` |
+| user | `Object` | ​ |
+| user.$id | `Integer` | Owner of raindrop |
+
+### Other properties
 
 <table>
   <thead>
@@ -133,20 +50,7 @@ description: We call bookmarks (or items) as "raindrops"
       <td style="text-align:left">cache.status</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">
-        <p>Can be:</p>
-        <p><code>ready</code>
-        </p>
-        <p><code>retry</code>
-        </p>
-        <p><code>failed</code>
-        </p>
-        <p><code>invalid-origin</code>
-        </p>
-        <p><code>invalid-timeout</code>
-        </p>
-        <p><code>invalid-size</code>
-        </p>
+      <td style="text-align:left"><code>ready</code>  <code>retry</code>  <code>failed</code>  <code>invalid-origin</code>  <code>invalid-timeout</code> or <code>invalid-size</code>
       </td>
     </tr>
     <tr>
