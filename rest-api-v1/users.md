@@ -20,15 +20,15 @@
 
 ### Config fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| config.broken\_level | Boolean |  |
-| config.font\_color | Boolean |  |
-| config.font\_size | String |  |
-| config.lang | String |  |
-| config.last\_collection | Integer |  |
-| config.raindrops\_sort | String |  |
-| config.raindrops\_view | String |  |
+| Field | Publicly visible | Type | Description |
+| :--- | :--- | :--- | :--- |
+| config.broken\_level | No | Boolean |  |
+| config.font\_color | No | Boolean |  |
+| config.font\_size | No | String |  |
+| config.lang | No | String |  |
+| config.last\_collection | No | Integer |  |
+| config.raindrops\_sort | No | String |  |
+| config.raindrops\_view | No | String |  |
 
 ### Additional fields
 
