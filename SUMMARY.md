@@ -10,7 +10,7 @@
   * [Make authorized calls](rest-api-v1/authentication-1/make-authorized-calls.md)
 * [Collections](rest-api-v1/collections.md)
   * [Nested structure](rest-api-v1/collections/nested-structure.md)
-  * [Sharing](rest-api-v1/collections/sharing.md)
+  * [Sharing](rest-api-v1/sharing.md)
 * [Raindrops](rest-api-v1/raindrops-1/README.md)
   * [Single raindrop](rest-api-v1/raindrops-1/raindrops.md)
   * [Multiple raindrops](rest-api-v1/raindrops-1/multiple-raindrops.md)
