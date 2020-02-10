@@ -92,7 +92,16 @@
       </td>
     </tr>
   </tbody>
-</table>### Additional fields
+</table>### Groups object fields <a id="single-group-detail"></a>
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| title | `String` | Name of group |
+| hidden | `Boolean` | Does group is collapsed |
+| sort | `Integer` | Ascending order position |
+| collections | `Array<Integer>` | Collection ID's in order |
+
+### Other fields
 
 | Field | Publicly visible | Type | Description |
 | :--- | :--- | :--- | :--- |

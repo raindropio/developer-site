@@ -137,7 +137,7 @@ User ID
 
 {% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/user" %}
 {% api-method-summary %}
-Update authenticated user
+Update user
 {% endapi-method-summary %}
 
 {% api-method-description %}
