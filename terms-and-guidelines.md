@@ -8,13 +8,17 @@ I encourage you to build applications that **extend** Raindrop.io to platforms b
 
 #### DON’T <a id="dont"></a>
 
-Don’t build what I'm building. I invested a lot of time, money and hard work in Raindrop.io. I rely on Raindrop.io for income. As such, do not build an application, website, product, or business that attempts to harm, compete with, or replace Raindrop.io, website, or services.
+Don’t build what I’ve building. I invested a lot of time, money and hard work in Raindrop.io. I rely on Raindrop.io for income. As such, do not build an application, website, product, or business that attempts to harm, compete with, or replace Raindrop.io, website, or services.
 
 In particular, do not use the API, or any Raindrop.io data, to build the following:
 
 * A website that replicates or replaces the essential user experience of raindrop.io
 
 I'll do the best to communicate fair use of the Raindrop.io API in this space and others, but the onus is on you to contact me and inquire whether your use of the API is permitted.
+
+### Branding <a id="branding"></a>
+
+Don’t use the Raindrop.io name, logo or other marks to brand your application, or register a url containing the word `raindrop.io` or `raindrop` \(or a variant of it\). Give your application an original name to make it clear that it’s owned and operated by someone other than Raindrop.io.
 
 ### Commercial Use <a id="commercial-use"></a>
 
