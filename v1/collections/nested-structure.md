@@ -2,7 +2,7 @@
 
 ### Overview
 
-If you look into Raindrop UI you will notice a sidebar in left corner, where collections are located. Collections itself divided by groups. They useful to create separate sets of collections, for example "Home", "Work", etc.
+If you look into Raindrop UI you will notice a sidebar in left corner, where collections are located. Collections itself divided by groups. Groups useful to create separate sets of collections, for example "Home", "Work", etc.
 
 ![](../../.gitbook/assets/sidebar.png)
 
@@ -12,7 +12,7 @@ So to fully recreate sidebar like in our app you need to make 3 separate API cal
 
 #### 1. [Get user object](../user/authenticated.md#get-user)
 
-It contains groups array with exact collection ID's. Typically this array looks like this:
+It contains `groups` array with exact collection ID's. Typically this array looks like this:
 
 ```javascript
 {
@@ -43,7 +43,13 @@ It contains groups array with exact collection ID's. Typically this array looks 
 Collection ID's listed below is just first level of collections structure! To create full tree of nested collections you need to get child items separately.
 {% endhint %}
 
+To get name, count, icon and other info about collections, make those two separate calls:
+
 #### 2. [Get root collections](./#get-root-collections)
 
+Sort order of root collections persisted in `groups[].collections` array
+
 #### 3. [Get child collections](./#get-nested-collections)
+
+Sort order of child collections persisted in collection itself in `sort` field
 

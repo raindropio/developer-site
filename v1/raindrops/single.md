@@ -412,7 +412,7 @@ Get permanent copy
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Links permanently saved with all content \(only in PRO plan\). Using this method you can navigate to this copy.
 {% endapi-method-description %}
 
 {% api-method-spec %}

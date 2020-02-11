@@ -1,6 +1,8 @@
 # Covers/icons
 
-In your UI implementation you could easily make icon/cover selector from more than 10 000 icons.
+In your app you could easily make icon/cover selector from more than 10 000 icons
+
+![](../../.gitbook/assets/icon-finder.png)
 
 {% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collections/covers/{text}" %}
 {% api-method-summary %}
