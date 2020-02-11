@@ -32,7 +32,7 @@ Methods in this page accept some of parameters below, to filter, sort or limit r
       <td style="text-align:left">search</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">More details <a href="multiple-raindrops.md#search-parameter">below</a>
+      <td style="text-align:left">More details <a href="multiple.md#search-parameter">below</a>
       </td>
     </tr>
     <tr>

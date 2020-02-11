@@ -8,7 +8,7 @@ If you look into Raindrop UI you will notice a sidebar in left corner, where col
 
 So to fully recreate sidebar like in our app you need to make 3 separate API calls \(sorry, will be improved in future API updates\):
 
-#### 1. [Get user object](../users/authenticated-user.md#get-user)
+#### 1. [Get user object](../user/authenticated.md#get-user)
 
 It contains groups array with exact collection ID's. Typically this array looks like this:
 
