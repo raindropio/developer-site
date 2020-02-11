@@ -4,6 +4,8 @@
 
 If you look into Raindrop UI you will notice a sidebar in left corner, where collections are located. Collections itself divided by groups. They useful to create separate sets of collections, for example "Home", "Work", etc.
 
+![](../../.gitbook/assets/sidebar.png)
+
 `Groups` array is a single place where user **root** collection list and order is persisted. Why just not to save order position inside collection item itself? Because collections can be shared and they group and order can vary from user to user.
 
 So to fully recreate sidebar like in our app you need to make 3 separate API calls \(sorry, will be improved in future API updates\):
