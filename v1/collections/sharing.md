@@ -337,6 +337,34 @@ Secret token from email
 }
 ```
 {% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=403 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+//Incorrect token
+{
+    "result": false,
+    "error": "CollaboratorsIncorrectToken",
+    "errorMessage": "Incorrect or expired token"
+}
+
+//Collection no more exists
+{
+    "result": false,
+    "error": "CollaboratorsNoCollection",
+    "errorMessage": "Shared collection not found or removed"
+}
+
+{
+    "result": false,
+    "error": "CollaboratorsAlready",
+    "errorMessage": "You already owner of this collection"
+}
+```
+{% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
