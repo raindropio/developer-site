@@ -6,8 +6,8 @@
 ## Rest API v1 <a id="v1"></a>
 
 * [Authentication](v1/authentication/README.md)
-  * [Obtain access token](v1/authentication/authentication.md)
-  * [Make authorized calls](v1/authentication/make-authorized-calls.md)
+  * [Obtain access token](v1/authentication/token.md)
+  * [Make authorized calls](v1/authentication/calls.md)
 * [Collections](v1/collections/README.md)
   * [Collection methods](v1/collections/methods.md)
   * [Nested structure](v1/collections/nested-structure.md)
