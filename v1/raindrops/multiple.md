@@ -2,7 +2,7 @@
 
 ### Common parameters
 
-Methods in this page accept some of parameters below, to filter, sort or limit raindrops. What exact parameters supported mentioned in each method description.
+To filter, sort or limit raindrops use one of the parameters described below. Check each method for exact list of supported parameters.
 
 <table>
   <thead>
