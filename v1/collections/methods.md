@@ -57,7 +57,7 @@ Returns JSON-encoded array containing all root collections
 
 {% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collections/childrens" %}
 {% api-method-summary %}
-Get nested collections
+Get child collections
 {% endapi-method-summary %}
 
 {% api-method-description %}

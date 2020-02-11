@@ -49,7 +49,7 @@ To get name, count, icon and other info about collections, make those two separa
 
 Sort order of root collections persisted in `groups[].collections` array
 
-#### 3. [Get child collections](methods.md#get-nested-collections)
+#### 3. [Get child collections](methods.md#get-child-collections)
 
 Sort order of child collections persisted in collection itself in `sort` field
 
