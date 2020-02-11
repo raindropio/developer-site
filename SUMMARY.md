@@ -20,3 +20,7 @@
 * [Filters](rest-api-v1/filters.md)
 * [Import](rest-api-v1/import.md)
 
+## More <a id="etc"></a>
+
+* [Showcase](etc/showcase.md)
+
