@@ -1,6 +1,6 @@
 # Single raindrop
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrop/:id" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" %}
 {% api-method-summary %}
 Get raindrop
 {% endapi-method-summary %}
@@ -114,7 +114,7 @@ For example if you want to move raindrop to the first place set this field to **
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/:id" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" %}
 {% api-method-summary %}
 Update raindrop
 {% endapi-method-summary %}
@@ -202,13 +202,13 @@ For example if you want to move raindrop to the first place set this field to **
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/raindrop/:id" %}
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" %}
 {% api-method-summary %}
 Remove raindrop
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Raindrop will be moved to "Trash", or permanently removed if it already located in "Trash"
+When you remove raindrop it will be moved to user `Trash` collection. But if you try to remove raindrop from `Trash`, it will be removed permanently.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -236,7 +236,7 @@ Existing raindrop ID
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/:id/file" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/file" %}
 {% api-method-summary %}
 Upload file
 {% endapi-method-summary %}
@@ -322,7 +322,7 @@ File
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/:id/cover" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cover" %}
 {% api-method-summary %}
 Upload cover
 {% endapi-method-summary %}
@@ -406,7 +406,7 @@ File
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrop/:id/cache" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cache" %}
 {% api-method-summary %}
 Get permanent copy
 {% endapi-method-summary %}

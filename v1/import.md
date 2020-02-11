@@ -10,7 +10,7 @@ Parse URL
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Gets title, description, image and other details from any URL
+Parse and extract useful info from any URL
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -143,7 +143,7 @@ Parse HTML import file
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Convert HTML bookmarks file to JSON.   
+Convert HTML bookmark file to JSON.   
 Support Nestcape, Pocket and Instapaper file formats
 {% endapi-method-description %}
 

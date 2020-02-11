@@ -16,7 +16,9 @@ Step 1: The authorization request
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Redirect users to this authorization URL with specified request parameters
+Direct the user to our authorization URL with specified request parameters.  
+— If the user is not logged in, they will be asked to log in  
+— The user will be asked if he would like to grant your application access to his Raindrop.io data
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -101,8 +103,8 @@ Same `redirect_uri` from step 1
 
 ```
 {
-  "access_token": "ae261404-18r4-47c0-bce3-e18a423da898",
-  "refresh_token": "c8080368-fad2-4a9f-b2c9-73d3z850111b",
+  "access_token": "ae261404-11r4-47c0-bce3-e18a423da828",
+  "refresh_token": "c8080368-fad2-4a3f-b2c9-71d3z85011vb",
   "expires": 1209599768,
   "token_type": "Bearer"
 }

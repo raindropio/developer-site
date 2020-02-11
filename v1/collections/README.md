@@ -63,13 +63,13 @@
       <td style="text-align:left">count</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
-      <td style="text-align:left">Raindrops count</td>
+      <td style="text-align:left">Count of raindrops in collection</td>
     </tr>
     <tr>
       <td style="text-align:left">cover</td>
       <td style="text-align:left"><code>Array&lt;String&gt;</code>
       </td>
-      <td style="text-align:left">Collection cover.
+      <td style="text-align:left">Collection cover URL.
         <br />This array always have one item due to legacy reasons</td>
     </tr>
     <tr>
@@ -100,13 +100,14 @@
       <td style="text-align:left">parent.$id</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
-      <td style="text-align:left">The id of the parent collection. Empty for root collection</td>
+      <td style="text-align:left">The id of the parent collection. Not specified for root collections</td>
     </tr>
     <tr>
       <td style="text-align:left">public</td>
       <td style="text-align:left"><code>Boolean</code>
       </td>
-      <td style="text-align:left">Collection and raindrops that it contains will be accessible without authentication?</td>
+      <td style="text-align:left">Collection and raindrops that it contains will be accessible without authentication
+        by public link</td>
     </tr>
     <tr>
       <td style="text-align:left">sort</td>
@@ -141,10 +142,12 @@
       <td style="text-align:left">
         <p>View style of collection, can be:</p>
         <ul>
-          <li>list (default)</li>
-          <li>simple</li>
-          <li>grid</li>
-          <li>masonry</li>
+          <li><code>list</code> (default)</li>
+          <li><code>simple</code>
+          </li>
+          <li><code>grid</code>
+          </li>
+          <li><code>masonry</code> Pinterest like grid</li>
         </ul>
       </td>
     </tr>

@@ -1,6 +1,6 @@
 # Tags
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/tags/:collectionId" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
 {% api-method-summary %}
 Get tags
 {% endapi-method-summary %}
@@ -40,7 +40,7 @@ Optional collection ID, when not specified all tags from all collections will be
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/tags/:collectionId" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
 {% api-method-summary %}
 Rename tag
 {% endapi-method-summary %}
@@ -84,7 +84,7 @@ Specify **array** with **only one** string \(name of a tag\)
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/tags/:collectionId" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
 {% api-method-summary %}
 Merge tags
 {% endapi-method-summary %}
@@ -128,7 +128,7 @@ List of tags
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/tags/:collectionId" %}
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
 {% api-method-summary %}
 Remove tag\(s\)
 {% endapi-method-summary %}
@@ -168,7 +168,7 @@ List of tags
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/tags/suggest/:raindropId" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/tags/suggest/{raindropId}" %}
 {% api-method-summary %}
 Suggest tags
 {% endapi-method-summary %}

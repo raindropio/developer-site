@@ -80,7 +80,7 @@ Unauthorized
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/:id" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/{id}" %}
 {% api-method-summary %}
 Get user by ID
 {% endapi-method-summary %}
@@ -228,7 +228,7 @@ To change email, config, password, etc... you can do it from single endpoint
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/connect/:provider" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/connect/{provider}" %}
 {% api-method-summary %}
 Connect social network account
 {% endapi-method-summary %}
@@ -260,7 +260,7 @@ Location: https://some.com/...
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/connect/:provider/revoke" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/connect/{provider}/revoke" %}
 {% api-method-summary %}
 Disconnect social network account
 {% endapi-method-summary %}

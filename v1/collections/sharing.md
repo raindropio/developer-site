@@ -47,7 +47,7 @@ Every user who shares at least one collection with another user, has a collabora
       </td>
     </tr>
   </tbody>
-</table>{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
+</table>{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
 {% api-method-summary %}
 Share collection
 {% endapi-method-summary %}
@@ -138,7 +138,7 @@ Maximum 10
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
 {% api-method-summary %}
 Get collaborators list of collection
 {% endapi-method-summary %}
@@ -182,7 +182,7 @@ Existing collection ID
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing" %}
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
 {% api-method-summary %}
 Unshare or leave collection
 {% endapi-method-summary %}
@@ -218,7 +218,7 @@ Existing collection ID
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing/:userId" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing/{userId}" %}
 {% api-method-summary %}
 Change access level of collaborator
 {% endapi-method-summary %}
@@ -262,7 +262,7 @@ Existing collection ID
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/:id/sharing/:userId" %}
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing/{userId}" %}
 {% api-method-summary %}
 Delete a collaborator
 {% endapi-method-summary %}
@@ -300,7 +300,7 @@ Existing collection ID
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/:id/join" %}
+{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/join" %}
 {% api-method-summary %}
 Accept an invitation
 {% endapi-method-summary %}

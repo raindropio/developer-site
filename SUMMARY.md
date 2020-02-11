@@ -12,13 +12,14 @@
   * [Collection methods](v1/collections/methods.md)
   * [Nested structure](v1/collections/nested-structure.md)
   * [Sharing](v1/collections/sharing.md)
-* [Raindrops](v1/raindrops/README.md)
+  * [Covers/icons](v1/collections/covers-icons.md)
+* [Raindrops](rest-api-v1/raindrops-1/README.md)
   * [Single raindrop](v1/raindrops/single.md)
   * [Multiple raindrops](v1/raindrops/multiple.md)
-* [User](v1/user/README.md)
+* [User](rest-api-v1/users.md)
   * [Authenticated user](v1/user/authenticated.md)
 * [Tags](v1/tags.md)
-* [Filters](v1/filters.md)
+* [Filters](rest-api-v1/filters.md)
 * [Import](v1/import.md)
 
 ## More

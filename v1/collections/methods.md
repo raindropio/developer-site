@@ -61,7 +61,7 @@ Get nested collections
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Returns JSON-encoded array containing all nested collections
+Returns JSON-encoded array containing all nested collections \(that have positive `parent.$id`\)
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -111,7 +111,7 @@ Returns JSON-encoded array containing all nested collections
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/:id" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/{id}" %}
 {% api-method-summary %}
 Get collection
 {% endapi-method-summary %}
@@ -244,7 +244,7 @@ Incorrect 'view' field value
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/:id" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/{id}" %}
 {% api-method-summary %}
 Update collection
 {% endapi-method-summary %}
@@ -311,7 +311,7 @@ Collection cover url
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/:id/cover" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/cover" %}
 {% api-method-summary %}
 Upload cover
 {% endapi-method-summary %}
@@ -360,7 +360,7 @@ File
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/:id" %}
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/{id}" %}
 {% api-method-summary %}
 Remove collection
 {% endapi-method-summary %}
@@ -499,7 +499,7 @@ Remove all empty collections
 
 {% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/-99" %}
 {% api-method-summary %}
-Empty Trash collection
+Empty Trash
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -515,8 +515,63 @@ Empty Trash collection
 
 {% endapi-method-response-example-description %}
 
+```javascript
+{
+  "result": true
+}
 ```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/stats" %}
+{% api-method-summary %}
+Get system collections count
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+  "items": [
+    {
+      "_id": 0,
+      "count": 1570
+    },
+    {
+      "_id": -1,
+      "count": 34
+    },
+    {
+      "_id": -99,
+      "count": 543
+    }
+  ],
+  "meta": {
+    "pro": true,
+    "_id": 32,
+    "changedBookmarksDate": "2020-02-11T11:23:43.143Z",
+    "duplicates": {
+      "count": 3
+    },
+    "broken": {
+      "count": 31
+    }
+  },
+  "result": true
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

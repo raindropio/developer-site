@@ -61,7 +61,7 @@ Methods in this page accept some of parameters below, to filter, sort or limit r
       <td style="text-align:left">perpage</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
-      <td style="text-align:left">Query parameter. From 1 to 50</td>
+      <td style="text-align:left">Query parameter. How many raindrops per page. 50 max</td>
     </tr>
     <tr>
       <td style="text-align:left">ids</td>
@@ -96,7 +96,7 @@ So for example if you want to find all raindrops with tag "apple" and "ios 13" p
 /rest/v1/raindrops/0?search=[{"key":"tag","val":"apple"},{"key":"word","val":"ios 13"}]
 ```
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrops/:collectionId" %}
+{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" %}
 {% api-method-summary %}
 Get raindrops
 {% endapi-method-summary %}
@@ -186,7 +186,7 @@ Maximum 100 objects in array!
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrops/:collectionId" %}
+{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" %}
 {% api-method-summary %}
 Update many raindrops
 {% endapi-method-summary %}
@@ -249,7 +249,7 @@ Specify `{"$id": collectionId}` to move raindrops to other collection
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/raindrops/:collectionId" %}
+{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" %}
 {% api-method-summary %}
 Remove many raindrops
 {% endapi-method-summary %}
