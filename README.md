@@ -68,7 +68,7 @@ X-RateLimit-Reset: 1392321600
 
 ### CORS <a id="cross-origin-resource-sharing"></a>
 
-The API supports Cross Origin Resource Sharing \(CORS\) for AJAX requests. You can read the [CORS W3C working draft](http://www.w3.org/TR/cors), or [this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the HTML 5 Security Guide.
+The API supports Cross Origin Resource Sharing \(CORS\) for AJAX requests. You can read the [CORS W3C recommendation](https://www.w3.org/TR/cors/), or [this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the HTML 5 Security Guide.
 
 Here’s a sample request sent from a browser hitting `http://example.com`:
 
