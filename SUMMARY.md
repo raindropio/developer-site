@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Overview](README.md)
-* [Terms & Guidelines](terms-and-guidelines.md)
+* [Terms & Guidelines](terms.md)
 
 ## Rest API v1 <a id="v1"></a>
 

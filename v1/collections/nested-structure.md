@@ -45,11 +45,11 @@ Collection ID's listed below is just first level of collections structure! To cr
 
 To get name, count, icon and other info about collections, make those two separate calls:
 
-#### 2. [Get root collections](./#get-root-collections)
+#### 2. [Get root collections](methods.md#get-root-collections)
 
 Sort order of root collections persisted in `groups[].collections` array
 
-#### 3. [Get child collections](./#get-nested-collections)
+#### 3. [Get child collections](methods.md#get-child-collections)
 
 Sort order of child collections persisted in collection itself in `sort` field
 
