@@ -89,7 +89,7 @@ For example if you want to move raindrop to the first place set this field to **
 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="link" type="string" required=false %}
+{% api-method-parameter name="link" type="string" required=true %}
 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
