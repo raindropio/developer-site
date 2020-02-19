@@ -1,6 +1,6 @@
 # Filters
 
-To help users easily find they content you can suggest context aware filters like we have in Raindrop.io app
+To help users easily find their content you can suggest context aware filters like we have in Raindrop.io app
 
 ![Filters right above search field](../.gitbook/assets/filters%20%281%29.png)
 
