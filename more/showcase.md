@@ -1,10 +1,14 @@
 # Showcase
 
-### Open source
+### iOS, Android
 
-[Official Raindrop.io mobile apps](https://github.com/raindropio/mobile) \(JS, React Native, Redux\)
+[Official Raindrop.io mobile app](https://github.com/raindropio/mobile) \(Open source, JS, React Native, Redux\)
 
 {% hint style="info" %}
-Current Raindrop.io mobile app use private API, but methods and they parameters almost equal to described in this documentation
+Currently, Raindrop.io mobile apps use a private API, but the methods and their parameters are almost equal to the ones described in this documentation
 {% endhint %}
+
+### Plugins
+
+[Alfred plugin](https://www.alfredforum.com/topic/14357-search-raindropio-open-bookmarks-in-active-browser/) by andreas.w
 
