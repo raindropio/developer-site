@@ -4,7 +4,7 @@ To help users easily find their content you can suggest context aware filters li
 
 ![Filters right above search field](../.gitbook/assets/filters%20%281%29.png)
 
-### Fields
+## Fields
 
 | Field | Type | Description |
 | :--- | :--- | :--- |

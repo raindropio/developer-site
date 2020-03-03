@@ -44,6 +44,10 @@ Description and possible values of fields described in "Fields"
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
+{% api-method-parameter name="created" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="lastUpdate" type="string" required=false %}
 
 {% endapi-method-parameter %}
@@ -132,10 +136,6 @@ Existing raindrop ID
 {% endapi-method-path-parameters %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="lastUpdate" type="string" required=false %}
-
-{% endapi-method-parameter %}
-
 {% api-method-parameter name="order" type="number" required=false %}
 Specify sort order \(ascending\).  
 For example if you want to move raindrop to the first place set this field to **0**

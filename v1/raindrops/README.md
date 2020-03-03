@@ -12,9 +12,10 @@ description: We call bookmarks (or items) as "raindrops"
 | collection | `Object` | ​ |
 | collection.$id | `Integer` | Collection that the raindrop resides in |
 | cover | `String` | Raindrop cover URL |
+| created | `String` | Creation date |
 | domain | `String` | Hostname of a link. Files always have `raindrop.io` hostname |
 | excerpt | `String` | Description; max length: 10000 |
-| lastUpdate | `String` | Date when bookmark is created. Unfortunately we doesn't have separate `creation` and `update` date fields yet :\( |
+| lastUpdate | `String` | Update date |
 | link | `String` | URL |
 | media | `Array<Object>` | ​Covers list in format: `[ {"link":"url"} ]` |
 | tags | `Array<String>` | Tags list |

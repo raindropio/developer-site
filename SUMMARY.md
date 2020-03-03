@@ -24,5 +24,6 @@
 
 ## More
 
+* [Changelog](more/changelog.md)
 * [Showcase](more/showcase.md)
 

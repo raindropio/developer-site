@@ -41,8 +41,8 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
       </td>
       <td style="text-align:left">
         <p>Query parameter for sorting:</p>
-        <p><code>-lastUpdate</code> by date descending (default)</p>
-        <p><code>+lastUpdate</code> by date ascending</p>
+        <p><code>-created</code> by date descending (default)</p>
+        <p><code>created</code> by date ascending</p>
         <p><code>score</code> by relevancy (only applicable when search is specified)</p>
         <p><code>-sort</code> by order</p>
         <p><code>title</code> by title (ascending)</p>
