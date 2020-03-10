@@ -121,7 +121,7 @@ URL's
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-
+ids array contains ID of existing bookmarks
 {% endapi-method-response-example-description %}
 
 ```javascript
