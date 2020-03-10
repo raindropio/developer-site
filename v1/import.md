@@ -106,7 +106,7 @@ Check URL\(s\) existence
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Will check does specified URL's are already exists in any collection
+Does specified URL's are already saved?
 {% endapi-method-description %}
 
 {% api-method-spec %}
