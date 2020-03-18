@@ -10,5 +10,5 @@ Currently, Raindrop.io mobile apps use a private API, but the methods and their 
 
 ### Plugins
 
-[Alfred plugin](https://www.alfredforum.com/topic/14357-search-raindropio-open-bookmarks-in-active-browser/) by andreas.w
+[Alfred Workflow](https://www.packal.org/workflow/search-raindropio) by Andreas Westerlind
 
