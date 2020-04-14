@@ -44,6 +44,10 @@ Description and possible values of fields described in "Fields"
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
+{% api-method-parameter name="pleaseParse" type="object" required=false %}
+Specify empty object to automatically parse meta data \(cover, description, html\) in the background
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="created" type="string" required=false %}
 
 {% endapi-method-parameter %}
@@ -136,6 +140,10 @@ Existing raindrop ID
 {% endapi-method-path-parameters %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="pleaseParse" type="object" required=false %}
+Specify empty object to re-parse link meta data \(cover, type, html\) in the background
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="order" type="number" required=false %}
 Specify sort order \(ascending\).  
 For example if you want to move raindrop to the first place set this field to **0**
@@ -196,6 +204,38 @@ For example if you want to move raindrop to the first place set this field to **
         ...
     }
 }
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/raindrop" %}
+{% api-method-summary %}
+
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-body-parameters %}
+{% api-method-parameter name="pleaseParse" type="object" required=false %}
+empty
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
