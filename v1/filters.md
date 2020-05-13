@@ -37,8 +37,8 @@ Collection ID. `0` for all
 {% endapi-method-path-parameters %}
 
 {% api-method-query-parameters %}
-{% api-method-parameter name="sort" type="string" required=false %}
-Sort results:  
+{% api-method-parameter name="tagsSort" type="string" required=false %}
+Sort tags by:  
 **`-count`** by count, default  
 **`_id`** by name
 {% endapi-method-parameter %}
