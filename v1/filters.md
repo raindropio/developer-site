@@ -37,6 +37,12 @@ Collection ID. `0` for all
 {% endapi-method-path-parameters %}
 
 {% api-method-query-parameters %}
+{% api-method-parameter name="sort" type="string" required=false %}
+Sort results:  
+**`-count`** by count, default  
+**`_id`** by name
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="search" type="string" required=false %}
 Check "raindrops" documentation for more details
 {% endapi-method-parameter %}
