@@ -92,7 +92,9 @@
       </td>
     </tr>
   </tbody>
-</table>### Groups object fields <a id="single-group-detail"></a>
+</table>
+
+### Groups object fields <a id="single-group-detail"></a>
 
 | Field | Type | Description |
 | :--- | :--- | :--- |

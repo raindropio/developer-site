@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.0.3
+
+* Merge and remove multiple collections endpoint
+
 ### 1.0.2
 
 * Filters endpoint now support sorting results

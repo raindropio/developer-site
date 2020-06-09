@@ -70,7 +70,9 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
       <td style="text-align:left">You can specify exact raindrop ID&apos;s for batch update/remove methods</td>
     </tr>
   </tbody>
-</table>### Search parameter
+</table>
+
+### Search parameter
 
 Query parameter to find and/or filter raindrops. Specified as url-encoded JSON serialized string:
 

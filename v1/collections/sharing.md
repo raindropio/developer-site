@@ -47,7 +47,9 @@ Every user who shares at least one collection with another user, has a collabora
       </td>
     </tr>
   </tbody>
-</table>{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
+</table>
+
+{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
 {% api-method-summary %}
 Share collection
 {% endapi-method-summary %}
