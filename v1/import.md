@@ -111,11 +111,11 @@ Does specified URL's are already saved?
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
+{% api-method-body-parameters %}
 {% api-method-parameter name="urls" type="array" required=true %}
 URL's
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -125,11 +125,19 @@ ids array contains ID of existing bookmarks
 {% endapi-method-response-example-description %}
 
 ```javascript
+//Found
 {
+    "result": true,
     "ids": [
         3322,
         12323
     ]
+}
+
+//Not found
+{
+    "result": false,
+    "ids": []
 }
 ```
 {% endapi-method-response-example %}
