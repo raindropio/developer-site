@@ -103,11 +103,12 @@ Same `redirect_uri` from step 1
 
 {% endapi-method-response-example-description %}
 
-```
+```javascript
 {
   "access_token": "ae261404-11r4-47c0-bce3-e18a423da828",
   "refresh_token": "c8080368-fad2-4a3f-b2c9-71d3z85011vb",
-  "expires": 1209599768,
+  "expires": 1209599768, //in miliseconds, deprecated
+  "expires_in": 1209599, //in seconds, use this instead!!!
   "token_type": "Bearer"
 }
 ```
@@ -118,7 +119,7 @@ Same `redirect_uri` from step 1
 Occurs when `code` parameter is invalid
 {% endapi-method-response-example-description %}
 
-```
+```javascript
 {"error": "bad_authorization_code"}
 ```
 {% endapi-method-response-example %}
@@ -162,11 +163,12 @@ Refresh token that you get in step 3
 
 {% endapi-method-response-example-description %}
 
-```
+```javascript
 {
   "access_token": "ae261404-18r4-47c0-bce3-e18a423da898",
   "refresh_token": "c8080368-fad2-4a9f-b2c9-73d3z850111b",
-  "expires": 1209599768,
+  "expires": 1209599768, //in miliseconds, deprecated
+  "expires_in": 1209599, //in seconds, use this instead!!!
   "token_type": "Bearer"
 }
 ```
