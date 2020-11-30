@@ -15,7 +15,7 @@
       <td style="text-align:left">_id</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
-      <td style="text-align:left">The id of the collection.</td>
+      <td style="text-align:left">The ID of the collection.</td>
     </tr>
     <tr>
       <td style="text-align:left">access</td>
@@ -28,7 +28,7 @@
       <td style="text-align:left"><code>Integer</code>
       </td>
       <td style="text-align:left">
-        <p></p>
+        <p>Indicates the collection's access levels. Available values are:</p>
         <ol>
           <li>read only access (equal to <code>public=true</code>)</li>
           <li>collaborator with read only access</li>
@@ -41,87 +41,87 @@
       <td style="text-align:left">access.draggable</td>
       <td style="text-align:left"><code>Boolean</code>
       </td>
-      <td style="text-align:left">Does it possible to change parent of this collection?</td>
+      <td style="text-align:left">Indicates whether it is possible to change the parent of this collection.</td>
     </tr>
     <tr>
       <td style="text-align:left">collaborators</td>
       <td style="text-align:left"><code>Object</code>
       </td>
-      <td style="text-align:left">When this object is present, means that collections is shared. Content
+      <td style="text-align:left">When this object is present, it indicates that the collection is shared. Content
         of this object is private and not very useful.
-        <br />All sharing API methods <a href="sharing.md">described here</a>
+        <br />All sharing API methods <a href="sharing.md">described here.</a>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">color</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">Primary color of collection cover as <code>HEX</code>
+      <td style="text-align:left">Primary color of collection cover as <code>HEX</code>.
       </td>
     </tr>
     <tr>
       <td style="text-align:left">count</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
-      <td style="text-align:left">Count of raindrops in collection</td>
+      <td style="text-align:left">Count of raindrops in this collection.</td>
     </tr>
     <tr>
       <td style="text-align:left">cover</td>
       <td style="text-align:left"><code>Array&lt;String&gt;</code>
       </td>
       <td style="text-align:left">Collection cover URL.
-        <br />This array always have one item due to legacy reasons</td>
+        <br />This array always has one item due to legacy reasons.</td>
     </tr>
     <tr>
       <td style="text-align:left">created</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">When collection is created</td>
+      <td style="text-align:left">When the collection was created.</td>
     </tr>
     <tr>
       <td style="text-align:left">expanded</td>
       <td style="text-align:left"><code>Boolean</code>
       </td>
-      <td style="text-align:left">Whether the collection&#x2019;s sub-collections are expanded</td>
+      <td style="text-align:left">Whether the collection&#x2019;s sub-collections are expanded.</td>
     </tr>
     <tr>
       <td style="text-align:left">lastUpdate</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">When collection is updated</td>
+      <td style="text-align:left">When the collection was last updated.</td>
     </tr>
     <tr>
       <td style="text-align:left">parent</td>
       <td style="text-align:left"><code>Object</code>
       </td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left">The parent of the collection.</td>
     </tr>
     <tr>
       <td style="text-align:left">parent.$id</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
-      <td style="text-align:left">The id of the parent collection. Not specified for root collections</td>
+      <td style="text-align:left">The ID of the parent collection. Not specified for root collections.</td>
     </tr>
     <tr>
       <td style="text-align:left">public</td>
       <td style="text-align:left"><code>Boolean</code>
       </td>
-      <td style="text-align:left">Collection and raindrops that it contains will be accessible without authentication
-        by public link</td>
+      <td style="text-align:left">Indicates whether the collection and its raindrops will be accessible without authentication
+        by public link.</td>
     </tr>
     <tr>
       <td style="text-align:left">sort</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
       <td style="text-align:left">The order of collection (descending). Defines the position of the collection
-        among all the collections with the same <code>parent.$id</code>
+        among all the collections with the same <code>parent.$id</code>.
       </td>
     </tr>
     <tr>
       <td style="text-align:left">title</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">Name of the collection</td>
+      <td style="text-align:left">Name of the collection.</td>
     </tr>
     <tr>
       <td style="text-align:left">user</td>
@@ -133,14 +133,14 @@
       <td style="text-align:left">user.$id</td>
       <td style="text-align:left"><code>Integer</code>
       </td>
-      <td style="text-align:left">Owner ID</td>
+      <td style="text-align:left">Owner ID.</td>
     </tr>
     <tr>
       <td style="text-align:left">view</td>
       <td style="text-align:left"><code>String</code>
       </td>
       <td style="text-align:left">
-        <p>View style of collection, can be:</p>
+        <p>View style of the collection. Available values are:</p>
         <ul>
           <li><code>list</code> (default)</li>
           <li><code>simple</code>
@@ -155,7 +155,7 @@
 </table>
 
 {% hint style="warning" %}
-Our API response could contain **other fields**, not described above. It's **unsafe to use** them in your integration! They could be removed or renamed at any time.
+Our API response may contain **other fields**, not described above. It's **unsafe to use** them in your integration! They could be removed or renamed at any time.
 {% endhint %}
 
 ### System collections
