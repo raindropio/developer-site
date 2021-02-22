@@ -40,7 +40,7 @@ The unique Client ID of the Raindrop.io app that you registered
 Check details in Step 2
 {% endapi-method-response-example-description %}
 
-```
+```text
 
 ```
 {% endapi-method-response-example %}
@@ -50,7 +50,7 @@ Check details in Step 2
 
 ![User will be asked if he would like to grant your application access to his Raindrop.io data](../../.gitbook/assets/authorize.png)
 
-### Step 2: The redirection to your application site
+## Step 2: The redirection to your application site
 
 When the user grants your authorization request, the user will be redirected to the redirect URL configured in your application setting. The redirect request will come with query parameter attached: `code` .
 

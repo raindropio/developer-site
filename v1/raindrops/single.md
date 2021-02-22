@@ -140,6 +140,14 @@ Existing raindrop ID
 {% endapi-method-path-parameters %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="created" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="lastUpdate" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="pleaseParse" type="object" required=false %}
 Specify empty object to re-parse link meta data \(cover, type, html\) in the background
 {% endapi-method-parameter %}
