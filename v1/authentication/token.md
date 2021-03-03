@@ -50,6 +50,12 @@ Check details in Step 2
 
 ![User will be asked if he would like to grant your application access to his Raindrop.io data](../../.gitbook/assets/authorize.png)
 
+Here example CURL request:
+
+```bash
+curl "https://api.raindrop.io/v1/oauth/authorize?client_id=5e1c382cf6f48c0211359083&redirect_uri=https:%2F%2Foauthdebugger.com%2Fdebug"
+```
+
 ## Step 2: The redirection to your application site
 
 When the user grants your authorization request, the user will be redirected to the redirect URL configured in your application setting. The redirect request will come with query parameter attached: `code` .
@@ -69,13 +75,23 @@ Step 3: The token exchange
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Once you have the authorization `code`, you can exchange it for the `access_token` by doing a `POST` request to this URL
+Once you have the authorization `code`, you can exchange it for the `access_token` by doing a `POST` request with all required body parameters as JSON:
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="code" type="string" required=true %}
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
+application/json
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="grant\_type" type="string" required=false %}
+**authorization\_code**
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="code" type="string" required=false %}
 Code that you received in step 2
 {% endapi-method-parameter %}
 
@@ -90,11 +106,7 @@ Client secret
 {% api-method-parameter name="redirect\_uri" type="string" required=true %}
 Same `redirect_uri` from step 1
 {% endapi-method-parameter %}
-
-{% api-method-parameter name="grant\_type" type="string" required=true %}
-**authorization\_code**
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -127,34 +139,54 @@ Occurs when `code` parameter is invalid
 {% endapi-method-spec %}
 {% endapi-method %}
 
+Here an example CURL request:
+
+```bash
+curl -X "POST" "https://raindrop.io/oauth/access_token" \
+     -H 'Content-Type: application/json' \
+     -d $'{
+  "code": "c8983220-1cca-4626-a19d-801a6aae003c",
+  "client_id": "5e1c589cf6f48c0211311383",
+  "redirect_uri": "https://oauthdebugger.com/debug",
+  "client_secret": "c3363988-9d27-4bc6-a0ae-d126ce78dc09",
+  "grant_type": "authorization_code"
+}'
+```
+
 {% api-method method="post" host="https://raindrop.io" path="/oauth/access\_token" %}
 {% api-method-summary %}
 ♻️ The access token refresh
 {% endapi-method-summary %}
 
 {% api-method-description %}
-For security reasons access tokens \(except "test tokens"\) will **expire after two weeks**. In this case you should request the new one, by calling `POST` request with such parameters:
+For security reasons access tokens \(except "test tokens"\) will **expire after two weeks**. In this case you should request the new one, by calling `POST` request with body parameters \(JSON\):
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="client\_id" type="string" required=true %}
+{% api-method-headers %}
+{% api-method-parameter name="Content-Type" type="string" required=false %}
+application/json
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="client\_id" type="string" required=false %}
 The unique Client ID of your app that you registered
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="client\_secret" type="string" required=true %}
+{% api-method-parameter name="client\_secret" type="string" required=false %}
 Client secret of your app
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="grant\_type" type="string" required=true %}
+{% api-method-parameter name="grant\_type" type="string" required=false %}
 **refresh\_token**
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="refresh\_token" type="string" required=true %}
+{% api-method-parameter name="refresh\_token" type="string" required=false %}
 Refresh token that you get in step 3
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
