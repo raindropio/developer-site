@@ -87,11 +87,11 @@ application/json
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="grant\_type" type="string" required=false %}
+{% api-method-parameter name="grant\_type" type="string" required=true %}
 **authorization\_code**
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="code" type="string" required=false %}
+{% api-method-parameter name="code" type="string" required=true %}
 Code that you received in step 2
 {% endapi-method-parameter %}
 
@@ -165,25 +165,25 @@ For security reasons access tokens \(except "test tokens"\) will **expire after 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-headers %}
-{% api-method-parameter name="Content-Type" type="string" required=false %}
+{% api-method-parameter name="Content-Type" type="string" required=true %}
 application/json
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="client\_id" type="string" required=false %}
+{% api-method-parameter name="client\_id" type="string" required=true %}
 The unique Client ID of your app that you registered
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="client\_secret" type="string" required=false %}
+{% api-method-parameter name="client\_secret" type="string" required=true %}
 Client secret of your app
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="grant\_type" type="string" required=false %}
+{% api-method-parameter name="grant\_type" type="string" required=true %}
 **refresh\_token**
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="refresh\_token" type="string" required=false %}
+{% api-method-parameter name="refresh\_token" type="string" required=true %}
 Refresh token that you get in step 3
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
