@@ -7,7 +7,7 @@ This procedure is comprised of several steps, which will be described below.
 {% hint style="info" %}
 If you just want to test your application, or do not plan to access any data except yours account you don't need to make all of those steps.
 
-Just go to [App Management Console](https://app.raindrop.io/settings/integrations) and open your application settings. Copy **Test token** and use it as described in **Step 4.**
+Just go to [App Management Console](https://app.raindrop.io/settings/integrations) and open your application settings. Copy **Test token** and use it as described in [**Make authorized calls**](calls.md)**.**
 {% endhint %}
 
 {% api-method method="get" host="https://raindrop.io" path="/oauth/authorize" %}
