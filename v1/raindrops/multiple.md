@@ -1,3 +1,9 @@
+---
+description: >-
+  In this page you will find how to retrieve, create, update or delete multiple
+  raindrops at once.
+---
+
 # Multiple raindrops
 
 ### Common parameters
@@ -32,7 +38,11 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
       <td style="text-align:left">search</td>
       <td style="text-align:left"><code>String</code>
       </td>
-      <td style="text-align:left">More details <a href="multiple.md#search-parameter">below</a>
+      <td style="text-align:left">
+        <p>As text, check all <a href="https://help.raindrop.io/using-search#operators">examples here</a>
+        </p>
+        <p>You can first test your searches in Raindrop app and if it works correctly,
+          just copy content of search field and use it here</p>
       </td>
     </tr>
     <tr>
@@ -71,32 +81,6 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
     </tr>
   </tbody>
 </table>
-
-### Search parameter
-
-Query parameter to find and/or filter raindrops. Specified as url-encoded JSON serialized string:
-
-```javascript
-[{"key":"word","val":"text"}]
-```
-
-As you noticed this is an array with `key` and `val` parameters:
-
-| key | val | Description |
-| :--- | :--- | :--- |
-| word | any text | Full text search by title, description, tags, URL and page content |
-| tag | tag name | Find raindrops with exact tags |
-| notag |  | Find raindrops without any tags |
-| important |  | Raindrops marked as "favorite" |
-| type | `link` `article` `image` `document` or `audio` | Raindrop type |
-| domain | hostname | Find from hostname |
-| broken |  | Broken links |
-
-So for example if you want to find all raindrops with tag "apple" and "ios 13" phrase in text, you need to call URL like this:
-
-```http
-/rest/v1/raindrops/0?search=[{"key":"tag","val":"apple"},{"key":"word","val":"ios 13"}]
-```
 
 {% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" %}
 {% api-method-summary %}

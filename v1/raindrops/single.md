@@ -1,3 +1,9 @@
+---
+description: >-
+  In this page you will find how to retrieve, create, update or delete single
+  raindrop.
+---
+
 # Single raindrop
 
 {% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" %}
