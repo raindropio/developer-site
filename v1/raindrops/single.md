@@ -6,115 +6,90 @@ description: >-
 
 # Single raindrop
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" %}
-{% api-method-summary %}
-Get raindrop
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="get" summary="Get raindrop" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" required="true" %}
 Existing raindrop ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/raindrop" %}
-{% api-method-summary %}
-Create raindrop
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop" method="post" summary="Create raindrop" %}
+{% swagger-description %}
 Description and possible values of fields described in "Fields"
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="pleaseParse" type="object" required=false %}
-Specify empty object to automatically parse meta data \(cover, description, html\) in the background
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="pleaseParse" type="object" %}
+Specify empty object to automatically parse meta data (cover, description, html) in the background
+{% endswagger-parameter %}
 
-{% api-method-parameter name="created" type="string" required=false %}
+{% swagger-parameter in="body" name="created" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="lastUpdate" type="string" required=false %}
+{% swagger-parameter in="body" name="lastUpdate" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="order" type="number" required=false %}
-Specify sort order \(ascending\).  
-For example if you want to move raindrop to the first place set this field to **0**
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="order" type="number" %}
+Specify sort order (ascending).
 
-{% api-method-parameter name="important" type="boolean" required=false %}
+\
 
-{% endapi-method-parameter %}
 
-{% api-method-parameter name="tags" type="array" required=false %}
+For example if you want to move raindrop to the first place set this field to 
 
-{% endapi-method-parameter %}
+**0**
+{% endswagger-parameter %}
 
-{% api-method-parameter name="media" type="array" required=false %}
+{% swagger-parameter in="body" name="important" type="boolean" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="cover" type="string" required=false %}
+{% swagger-parameter in="body" name="tags" type="array" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="collection" type="object" required=false %}
+{% swagger-parameter in="body" name="media" type="array" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="type" type="string" required=false %}
+{% swagger-parameter in="body" name="cover" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="html" type="string" required=false %}
+{% swagger-parameter in="body" name="collection" type="object" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="excerpt" type="string" required=false %}
+{% swagger-parameter in="body" name="type" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="title" type="string" required=false %}
+{% swagger-parameter in="body" name="excerpt" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="link" type="string" required=true %}
+{% swagger-parameter in="body" name="title" type="string" %}
 
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+{% swagger-parameter in="body" name="link" type="string" required="true" %}
 
-{% endapi-method-response-example-description %}
+{% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="highlights" type="array" %}
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -123,94 +98,82 @@ For example if you want to move raindrop to the first place set this field to **
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" %}
-{% api-method-summary %}
-Update raindrop
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Update raindrop" %}
+{% swagger-description %}
 Description and possible values of fields described in "Fields"
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" required="true" %}
 Existing raindrop ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="created" type="string" required=false %}
+{% swagger-parameter in="body" name="created" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="lastUpdate" type="string" required=false %}
+{% swagger-parameter in="body" name="lastUpdate" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="pleaseParse" type="object" required=false %}
-Specify empty object to re-parse link meta data \(cover, type, html\) in the background
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="pleaseParse" type="object" %}
+Specify empty object to re-parse link meta data (cover, type, html) in the background
+{% endswagger-parameter %}
 
-{% api-method-parameter name="order" type="number" required=false %}
-Specify sort order \(ascending\).  
-For example if you want to move raindrop to the first place set this field to **0**
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="order" type="number" %}
+Specify sort order (ascending).
 
-{% api-method-parameter name="important" type="boolean" required=false %}
+\
 
-{% endapi-method-parameter %}
 
-{% api-method-parameter name="tags" type="array" required=false %}
+For example if you want to move raindrop to the first place set this field to 
 
-{% endapi-method-parameter %}
+**0**
+{% endswagger-parameter %}
 
-{% api-method-parameter name="media" type="array" required=false %}
+{% swagger-parameter in="body" name="important" type="boolean" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="cover" type="string" required=false %}
+{% swagger-parameter in="body" name="tags" type="array" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="collection" type="object" required=false %}
+{% swagger-parameter in="body" name="media" type="array" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="type" type="string" required=false %}
+{% swagger-parameter in="body" name="cover" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="html" type="string" required=false %}
+{% swagger-parameter in="body" name="collection" type="object" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="excerpt" type="string" required=false %}
+{% swagger-parameter in="body" name="type" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="title" type="string" required=false %}
+{% swagger-parameter in="body" name="excerpt" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="link" type="string" required=false %}
+{% swagger-parameter in="body" name="title" type="string" %}
 
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+{% swagger-parameter in="body" name="highlights" type="array" %}
 
-{% endapi-method-response-example-description %}
+{% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="link" type="string" %}
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -219,113 +182,53 @@ For example if you want to move raindrop to the first place set this field to **
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/raindrop" %}
-{% api-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="delete" summary="Remove raindrop" %}
+{% swagger-description %}
+When you remove raindrop it will be moved to user 
 
-{% endapi-method-summary %}
+`Trash`
 
-{% api-method-description %}
+ collection. But if you try to remove raindrop from 
 
-{% endapi-method-description %}
+`Trash`
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="pleaseParse" type="object" required=false %}
-empty
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+, it will be removed permanently.
+{% endswagger-description %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" %}
-{% api-method-summary %}
-Remove raindrop
-{% endapi-method-summary %}
-
-{% api-method-description %}
-When you remove raindrop it will be moved to user `Trash` collection. But if you try to remove raindrop from `Trash`, it will be removed permanently.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" required="true" %}
 Existing raindrop ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/file" %}
-{% api-method-summary %}
-Upload file
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/file" method="put" summary="Upload file" %}
+{% swagger-description %}
 To upload file you need to create single raindrop with any details, and then call this method for this raindrop. Sorry, will be simplified in the future.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" required="true" %}
 Existing raindrop ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-headers %}
-{% api-method-parameter name="Content-Type" type="string" required=true %}
+{% swagger-parameter in="header" name="Content-Type" type="string" required="true" %}
 multipart/form-data
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="file" type="object" required=true %}
+{% swagger-parameter in="body" name="file" type="object" required="true" %}
 File
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -342,13 +245,9 @@ File
     }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```javascript
 //file is not specified
 {
@@ -371,47 +270,27 @@ File
   "errorMessage": "File size limit"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cover" %}
-{% api-method-summary %}
-Upload cover
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cover" method="put" summary="Upload cover" %}
+{% swagger-description %}
 PNG, GIF or JPEG
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" required="true" %}
 Existing raindrop ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-headers %}
-{% api-method-parameter name="Content-Type" type="string" required=true %}
+{% swagger-parameter in="header" name="Content-Type" type="string" required="true" %}
 multipart/form-data
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="cover" type="object" required=true %}
+{% swagger-parameter in="body" name="cover" type="object" required="true" %}
 File
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -426,13 +305,9 @@ File
     }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```javascript
 //file is not specified
 {
@@ -455,40 +330,21 @@ File
   "errorMessage": "File size limit"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cache" %}
-{% api-method-summary %}
-Get permanent copy
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cache" method="get" summary="Get permanent copy" %}
+{% swagger-description %}
+Links permanently saved with all content (only in PRO plan). Using this method you can navigate to this copy.
+{% endswagger-description %}
 
-{% api-method-description %}
-Links permanently saved with all content \(only in PRO plan\). Using this method you can navigate to this copy.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" required="true" %}
 Existing raindrop ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=307 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="307" description="" %}
 ```http
 Location: https://s3.aws...
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

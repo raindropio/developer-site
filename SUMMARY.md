@@ -3,7 +3,7 @@
 * [Overview](README.md)
 * [Terms & Guidelines](terms.md)
 
-## Rest API v1 <a id="v1"></a>
+## Rest API v1 <a href="#v1" id="v1"></a>
 
 * [Authentication](v1/authentication/README.md)
   * [Obtain access token](v1/authentication/token.md)
@@ -16,6 +16,7 @@
 * [Raindrops](v1/raindrops/README.md)
   * [Single raindrop](v1/raindrops/single.md)
   * [Multiple raindrops](v1/raindrops/multiple.md)
+  * [Highlights](v1/raindrops/highlights.md)
 * [User](v1/user/README.md)
   * [Authenticated user](v1/user/authenticated.md)
 * [Tags](v1/tags.md)
@@ -26,4 +27,3 @@
 
 * [Changelog](more/changelog.md)
 * [Showcase](more/showcase.md)
-

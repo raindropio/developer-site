@@ -10,153 +10,61 @@ description: >-
 
 To filter, sort or limit raindrops use one of the parameters described below. Check each method for exact list of supported parameters.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Type</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">collectionId</td>
-      <td style="text-align:left"><code>Integer</code>
-      </td>
-      <td style="text-align:left">
-        <p>Path parameter that specify from which collection to get raindrops. Or
-          specify one of system:</p>
-        <p><code>0</code> to get all (except Trash)</p>
-        <p><code>-1</code> to get from &quot;Unsorted&quot;</p>
-        <p><code>-99</code> to get from &quot;Trash&quot;</p>
-        <p></p>
-        <p>Warning: update or remove methods not support <code>0</code> yet. Will be
-          fixed in future.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">search</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">
-        <p>As text, check all <a href="https://help.raindrop.io/using-search#operators">examples here</a>
-        </p>
-        <p>You can first test your searches in Raindrop app and if it works correctly,
-          just copy content of search field and use it here</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">sort</td>
-      <td style="text-align:left"><code>String</code>
-      </td>
-      <td style="text-align:left">
-        <p>Query parameter for sorting:</p>
-        <p><code>-created</code> by date descending (default)</p>
-        <p><code>created</code> by date ascending</p>
-        <p><code>score</code> by relevancy (only applicable when search is specified)</p>
-        <p><code>-sort</code> by order</p>
-        <p><code>title</code> by title (ascending)</p>
-        <p><code>-title</code> by title (descending)</p>
-        <p><code>domain</code> by hostname (ascending)</p>
-        <p><code>-domain</code> by hostname (descending)</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">page</td>
-      <td style="text-align:left"><code>Integer</code>
-      </td>
-      <td style="text-align:left">Query parameter. 0, 1, 2, 3 ...</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">perpage</td>
-      <td style="text-align:left"><code>Integer</code>
-      </td>
-      <td style="text-align:left">Query parameter. How many raindrops per page. 50 max</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">ids</td>
-      <td style="text-align:left"><code>Array&lt;Integer&gt;</code>
-      </td>
-      <td style="text-align:left">You can specify exact raindrop ID&apos;s for batch update/remove methods</td>
-    </tr>
-  </tbody>
-</table>
+| Parameter    | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| collectionId | `Integer`        | <p>Path parameter that specify from which collection to get raindrops. Or specify one of system:</p><p><code>0</code> to get all (except Trash)</p><p><code>-1</code> to get from "Unsorted"</p><p><code>-99</code> to get from "Trash"</p><p></p><p>Warning: update or remove methods not support <code>0</code> yet. Will be fixed in future.</p>                                                                                                              |
+| search       | `String`         | <p>As text, check all <a href="https://help.raindrop.io/using-search#operators">examples here</a></p><p>You can first test your searches in Raindrop app and if it works correctly, just copy content of search field and use it here</p>                                                                                                                                                                                                                        |
+| sort         | `String`         | <p>Query parameter for sorting:</p><p><code>-created</code> by date descending (default)</p><p><code>created</code> by date ascending</p><p><code>score</code> by relevancy (only applicable when search is specified)</p><p><code>-sort</code> by order</p><p><code>title</code> by title (ascending)</p><p><code>-title</code> by title (descending)</p><p><code>domain</code> by hostname (ascending)</p><p><code>-domain</code> by hostname (descending)</p> |
+| page         | `Integer`        | Query parameter. 0, 1, 2, 3 ...                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| perpage      | `Integer`        | Query parameter. How many raindrops per page. 50 max                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ids          | `Array<Integer>` | You can specify exact raindrop ID's for batch update/remove methods                                                                                                                                                                                                                                                                                                                                                                                              |
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" %}
-{% api-method-summary %}
-Get raindrops
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" method="get" summary="Get raindrops" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="number" required=true %}
+{% swagger-parameter in="path" name="collectionId" type="number" required="true" %}
 Collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="sort" type="string" required=false %}
+{% swagger-parameter in="query" name="sort" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="perpage" type="number" required=false %}
+{% swagger-parameter in="query" name="perpage" type="number" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="page" type="number" required=false %}
+{% swagger-parameter in="query" name="page" type="number" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="search" type="string" required=false %}
+{% swagger-parameter in="query" name="search" type="string" %}
 
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/raindrops" %}
-{% api-method-summary %}
-Create many raindrops
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops" method="post" summary="Create many raindrops" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="body" name="items" type="array" required="true" %}
+Array of objects. Format of single object described in "Create single raindrop".
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="items" type="array" required=false %}
-Array of objects. Format of single object described in "Create single raindrop".  
+\
+
+
 Maximum 100 objects in array!
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -167,119 +75,147 @@ Maximum 100 objects in array!
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" %}
-{% api-method-summary %}
-Update many raindrops
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" method="put" summary="Update many raindrops" %}
+{% swagger-description %}
+Specify optional 
 
-{% api-method-description %}
-Specify optional `search` and/or `ids` parameters to limit raindrops that will be updated.  
+`search`
+
+ and/or 
+
+`ids`
+
+ parameters to limit raindrops that will be updated.
+
+\
+
+
 Possible fields that could be updated are described in "Body Parameters"
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="number" required=true %}
+{% swagger-parameter in="path" name="collectionId" type="number" required="true" %}
 
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="ids" type="array" required=false %}
+{% swagger-parameter in="body" name="ids" type="array" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="important" type="boolean" required=false %}
-TRUE - mark as "favorite"  
+{% swagger-parameter in="body" name="important" type="boolean" %}
+TRUE - mark as "favorite"
+
+\
+
+
 FALSE - unmark as "favorite"
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="tags" type="array" required=false %}
-Will append specified tags to raindrops.  
-Or will remove all tags from raindrops if `[]` \(empty array\) is specified
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="tags" type="array" %}
+Will append specified tags to raindrops.
 
-{% api-method-parameter name="media" type="array" required=false %}
-Will append specified media items to raindrops.  
-Or will remove all media from raindrops if `[]` \(empty array\) is specified
-{% endapi-method-parameter %}
+\
 
-{% api-method-parameter name="cover" type="string" required=false %}
-Set URL for cover.  
-_Tip:_ specify `<screenshot>` to set screenshots for all raindrops
-{% endapi-method-parameter %}
 
-{% api-method-parameter name="collection" type="object" required=false %}
-Specify `{"$id": collectionId}` to move raindrops to other collection
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+Or will remove all tags from raindrops if 
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+`[]`
 
-{% endapi-method-response-example-description %}
+ (empty array) is specified
+{% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="media" type="array" %}
+Will append specified media items to raindrops.
+
+\
+
+
+Or will remove all media from raindrops if 
+
+`[]`
+
+ (empty array) is specified
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="cover" type="string" %}
+Set URL for cover.
+
+\
+
+
+_Tip:_
+
+ specify 
+
+`<screenshot>`
+
+ to set screenshots for all raindrops
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="collection" type="object" %}
+Specify 
+
+`{"$id": collectionId}`
+
+ to move raindrops to other collection
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" %}
-{% api-method-summary %}
-Remove many raindrops
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" method="delete" summary="Remove many raindrops" %}
+{% swagger-description %}
+Specify optional 
 
-{% api-method-description %}
-Specify optional `search` and/or `ids` parameters to limit raindrops that will be moved to "**Trash**"  
-When `:collectionId` is **-99**, raindrops will be permanently removed!
-{% endapi-method-description %}
+`search`
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="number" required=true %}
+ and/or 
 
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+`ids`
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="search" type="string" required=false %}
+ parameters to limit raindrops that will be moved to "
 
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+**Trash**
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="ids" type="array" required=false %}
+"
 
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+\
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
 
-{% endapi-method-response-example-description %}
+When 
 
+`:collectionId`
+
+ is 
+
+**-99**
+
+, raindrops will be permanently removed!
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="collectionId" type="number" required="true" %}
+
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="search" type="string" %}
+
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="ids" type="array" %}
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
     "modified": 330
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}
