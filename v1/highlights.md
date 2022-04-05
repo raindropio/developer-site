@@ -9,6 +9,8 @@ Single `highlight` object:
 | color   | `String` | <p>Color of highlight. <br>Default <code>yellow</code><br><br>Can be <code>blue</code>, <code>brown</code>, <code>cyan</code>, <code>gray</code>, <code>green</code>, <code>indigo</code>, <code>orange</code>, <code>pink</code>, <code>purple</code>, <code>red</code>, <code>teal</code>, <code>yellow</code></p> |
 | note    | `String` | Optional note for highlight                                                                                                                                                                                                                                                                                          |
 | created | `String` | Creation date of highlight                                                                                                                                                                                                                                                                                           |
+| tags    | `Array`  | Tags list                                                                                                                                                                                                                                                                                                            |
+| link    | `String` | Highlighted page URL                                                                                                                                                                                                                                                                                                 |
 
 {% swagger method="get" path="/rest/v1/highlights" baseUrl="https://api.raindrop.io" summary="Get all highlights" %}
 {% swagger-description %}
@@ -35,7 +37,8 @@ How many highlights per page. 50 max. Default 25
             "created": "2022-03-21T14:41:34.059Z",
             "tags": ["tag1", "tag2"],
             "_id": "62388e9e48b63606f41e44a6",
-            "raindropRef": 123
+            "raindropRef": 123,
+            "link": "https://apple.com"
         },
         {
             "note": "",
@@ -44,7 +47,8 @@ How many highlights per page. 50 max. Default 25
             "created": "2022-03-21T15:13:21.128Z",
             "tags": ["tag1", "tag2"],
             "_id": "62389611058af151c840f667",
-            "raindropRef": 123
+            "raindropRef": 123,
+            "link": "https://apple.com"
         }
     ]
 }
