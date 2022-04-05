@@ -16,7 +16,7 @@
 * [Raindrops](v1/raindrops/README.md)
   * [Single raindrop](v1/raindrops/single.md)
   * [Multiple raindrops](v1/raindrops/multiple.md)
-  * [Highlights](v1/raindrops/highlights.md)
+* [Highlights](v1/highlights.md)
 * [User](v1/user/README.md)
   * [Authenticated user](v1/user/authenticated.md)
 * [Tags](v1/tags.md)

@@ -2,59 +2,63 @@
 
 To help users easily find their content you can suggest context aware filters like we have in Raindrop.io app
 
-![Filters right above search field](../.gitbook/assets/filters%20%281%29.png)
+![Filters right above search field](<../.gitbook/assets/filters (1).png>)
 
 ## Fields
 
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| broken | `Object` |  |
-| broken.count | `Integer` | Broken links count |
-| duplicates | `Object` |  |
-| duplicates.count | `Integer` | Duplicate links count |
-| important | `Object` |  |
-| important.count | `Integer` | Count of raindrops that marked as "favorite" |
-| notag | `Object` |  |
-| notag.count | `Integer` | Count of raindrops without any tag |
-| tags | `Array<Object>` | List of tags in format `{"_id": "tag name", "count": 1}` |
-| types | `Array<Object>` | List of types in format `{"_id": "type", "count": 1}` |
+| Field            | Type            | Description                                              |
+| ---------------- | --------------- | -------------------------------------------------------- |
+| broken           | `Object`        |                                                          |
+| broken.count     | `Integer`       | Broken links count                                       |
+| duplicates       | `Object`        |                                                          |
+| duplicates.count | `Integer`       | Duplicate links count                                    |
+| important        | `Object`        |                                                          |
+| important.count  | `Integer`       | Count of raindrops that marked as "favorite"             |
+| notag            | `Object`        |                                                          |
+| notag.count      | `Integer`       | Count of raindrops without any tag                       |
+| tags             | `Array<Object>` | List of tags in format `{"_id": "tag name", "count": 1}` |
+| types            | `Array<Object>` | List of types in format `{"_id": "type", "count": 1}`    |
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}/filters" %}
-{% api-method-summary %}
-Get filters
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}/filters" method="get" summary="Get filters" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="path" name="collectionId" type="string" %}
+Collection ID. 
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="string" required=true %}
-Collection ID. `0` for all
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+`0`
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="tagsSort" type="string" required=false %}
-Sort tags by:  
-**`-count`** by count, default  
-**`_id`** by name
-{% endapi-method-parameter %}
+ for all
+{% endswagger-parameter %}
 
-{% api-method-parameter name="search" type="string" required=false %}
+{% swagger-parameter in="query" name="tagsSort" type="string" %}
+Sort tags by:
+
+\
+
+
+
+
+**`-count`**
+
+ by count, default
+
+\
+
+
+
+
+**`_id`**
+
+ by name
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="search" type="string" %}
 Check "raindrops" documentation for more details
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "result": true,
@@ -100,8 +104,5 @@ Check "raindrops" documentation for more details
   ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

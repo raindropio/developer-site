@@ -1,23 +1,11 @@
 # Collection methods
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collections" %}
-{% api-method-summary %}
-Get root collections
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="get" summary="Get root collections" %}
+{% swagger-description %}
 Returns JSON-encoded array containing all root collections
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "result": true,
@@ -50,29 +38,19 @@ Returns JSON-encoded array containing all root collections
   ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collections/childrens" %}
-{% api-method-summary %}
-Get child collections
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/childrens" method="get" summary="Get child collections" %}
+{% swagger-description %}
+Returns JSON-encoded array containing all nested collections (that have positive 
 
-{% api-method-description %}
-Returns JSON-encoded array containing all nested collections \(that have positive `parent.$id`\)
-{% endapi-method-description %}
+`parent.$id`
 
-{% api-method-spec %}
-{% api-method-request %}
+)
+{% endswagger-description %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "result": true,
@@ -106,35 +84,19 @@ Returns JSON-encoded array containing all nested collections \(that have positiv
   ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/{id}" %}
-{% api-method-summary %}
-Get collection
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}" method="get" summary="Get collection" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "result": true,
@@ -168,55 +130,41 @@ Collection ID
   }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection" %}
-{% api-method-summary %}
-Create collection
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection" method="post" summary="Create collection" %}
+{% swagger-description %}
 Create a new collection
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="view" type="string" required=false %}
+{% swagger-parameter in="body" name="view" type="string" %}
 More details in "Fields"
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="title" type="string" required=false %}
+{% swagger-parameter in="body" name="title" type="string" %}
 Name of the collection
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="sort" type="number" required=false %}
-The order of collection \(descending\). Defines the position of the collection among all the collections with the same `parent.$id`
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="sort" type="number" %}
+The order of collection (descending). Defines the position of the collection among all the collections with the same 
 
-{% api-method-parameter name="public" type="boolean" required=false %}
+`parent.$id`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="public" type="boolean" %}
 Collection and raindrops that it contains will be accessible without authentication?
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="parent.$id" type="integer" required=false %}
+{% swagger-parameter in="body" name="parent.$id" type="integer" %}
 The ID of parent collection. Empty for root collections
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="cover" type="array" required=false %}
+{% swagger-parameter in="body" name="cover" type="array" %}
 Collection cover url
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -225,13 +173,9 @@ Collection cover url
     }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-Incorrect 'view' field value
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="Incorrect 'view' field value" %}
 ```javascript
 {
     "result": false,
@@ -239,65 +183,49 @@ Incorrect 'view' field value
     "errorMessage": "Collection validation failed: view: `bla` is not a valid enum value for path `view`."
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/{id}" %}
-{% api-method-summary %}
-Update collection
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}" method="put" summary="Update collection" %}
+{% swagger-description %}
 Update an existing collection
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection id
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="expanded" type="boolean" required=false %}
-Whether the collection\`s sub-collections are expanded
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="expanded" type="boolean" %}
+Whether the collection`s sub-collections are expanded
+{% endswagger-parameter %}
 
-{% api-method-parameter name="view" type="string" required=false %}
+{% swagger-parameter in="body" name="view" type="string" %}
 More details in "Fields"
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="title" type="string" required=false %}
+{% swagger-parameter in="body" name="title" type="string" %}
 Name of the collection
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="sort" type="number" required=false %}
-The order of collection \(descending\). Defines the position of the collection among all the collections with the same `parent.$id`
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="sort" type="number" %}
+The order of collection (descending). Defines the position of the collection among all the collections with the same 
 
-{% api-method-parameter name="public" type="boolean" required=false %}
+`parent.$id`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="public" type="boolean" %}
 Collection and raindrops that it contains will be accessible without authentication?
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="parent.$id" type="integer" required=false %}
+{% swagger-parameter in="body" name="parent.$id" type="integer" %}
 The ID of parent collection. Empty for root collections
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="cover" type="array" required=false %}
+{% swagger-parameter in="body" name="cover" type="array" %}
 Collection cover url
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -306,47 +234,27 @@ Collection cover url
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/cover" %}
-{% api-method-summary %}
-Upload cover
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/cover" method="put" summary="Upload cover" %}
+{% swagger-description %}
 It's possible to upload cover from desktop. PNG, GIF and JPEG supported
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="string" required=true %}
+{% swagger-parameter in="path" name="id" type="string" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-headers %}
-{% api-method-parameter name="Content-Type" type="string" required=true %}
+{% swagger-parameter in="header" name="Content-Type" type="string" %}
 multipart/form-data
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="cover" type="object" required=true %}
+{% swagger-parameter in="body" name="cover" type="object" %}
 File
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -355,263 +263,175 @@ File
     }
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/{id}" %}
-{% api-method-summary %}
-Remove collection
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}" method="delete" summary="Remove collection" %}
+{% swagger-description %}
+Remove an existing collection and all its descendants.
 
-{% api-method-description %}
-Remove an existing collection and all its descendants.  
+\
+
+
 Raindrops will be moved to "Trash" collection
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collections" %}
-{% api-method-summary %}
-Remove multiple collections
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="delete" summary="Remove multiple collections" %}
+{% swagger-description %}
+Remove multiple collections at once.
 
-{% api-method-description %}
-Remove multiple collections at once.  
-Nested collections are ignored \(include ID's in `ids` array to remove them\)
-{% endapi-method-description %}
+\
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="ids" type="array" required=true %}
+
+Nested collections are ignored (include ID's in 
+
+`ids`
+
+ array to remove them)
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="ids" type="array" %}
 Array of collection ID
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collections" %}
-{% api-method-summary %}
-Reorder all collections
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="put" summary="Reorder all collections" %}
+{% swagger-description %}
 Updates order of all collections 
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="sort" type="string" required=true %}
-Change order of all collections.  
-Possible values:  
-"title" - sort alphabetically ascending  
-"-title" - sort alphabetically descending  
+{% swagger-parameter in="body" name="sort" type="string" %}
+Change order of all collections.
+
+\
+
+
+Possible values:
+
+\
+
+
+"title" - sort alphabetically ascending
+
+\
+
+
+"-title" - sort alphabetically descending
+
+\
+
+
 "-count" - sort by raindrops count descending
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collections" %}
-{% api-method-summary %}
-Expand/collapse all collections
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="put" summary="Expand/collapse all collections" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="path" name="expanded" type="boolean" %}
+TRUE = expand all
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="expanded" type="boolean" required=true %}
-TRUE = expand all  
+\
+
+
 FALSE = collapse all
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collections/merge" %}
-{% api-method-summary %}
-Merge collections
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/merge" method="put" summary="Merge collections" %}
+{% swagger-description %}
 Merge multiple collections
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="to" type="number" required=false %}
-Collection ID where listed collection `ids` will be merged
-{% endapi-method-parameter %}
+{% swagger-parameter in="body" name="to" type="number" %}
+Collection ID where listed collection 
 
-{% api-method-parameter name="ids" type="array" required=false %}
+`ids`
+
+ will be merged
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="ids" type="array" %}
 Collection ID's
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collections/clean" %}
-{% api-method-summary %}
-Remove all empty collections
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/clean" method="put" summary="Remove all empty collections" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
     "count": 3
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/-99" %}
-{% api-method-summary %}
-Empty Trash
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/-99" method="delete" summary="Empty Trash" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/stats" %}
-{% api-method-summary %}
-Get system collections count
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user/stats" method="get" summary="Get system collections count" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "items": [
@@ -642,10 +462,6 @@ Get system collections count
   "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-
+{% endswagger-response %}
+{% endswagger %}
 

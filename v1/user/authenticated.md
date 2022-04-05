@@ -1,23 +1,11 @@
 # Authenticated user
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user" %}
-{% api-method-summary %}
-Get user
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user" method="get" summary="Get user" %}
+{% swagger-description %}
 Get currently authenticated user details
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -65,45 +53,25 @@ Get currently authenticated user details
   }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=401 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="401" description="" %}
 ```http
 Unauthorized
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/{id}" %}
-{% api-method-summary %}
-Get user by ID
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user/{id}" method="get" summary="Get user by ID" %}
+{% swagger-description %}
 Get's publicly available user details
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 User ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "result": true,
@@ -116,13 +84,9 @@ User ID
   }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="" %}
 ```javascript
 {
   "error": -1,
@@ -130,55 +94,39 @@ User ID
   "result": false
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/user" %}
-{% api-method-summary %}
-Update user
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user" method="put" summary="Update user" %}
+{% swagger-description %}
 To change email, config, password, etc... you can do it from single endpoint 
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="groups" type="array" required=false %}
+{% swagger-parameter in="body" name="groups" type="array" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="config" type="object" required=false %}
+{% swagger-parameter in="body" name="config" type="object" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="newpassword" type="string" required=false %}
+{% swagger-parameter in="body" name="newpassword" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="oldpassword" type="string" required=false %}
+{% swagger-parameter in="body" name="oldpassword" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="fullName" type="string" required=false %}
+{% swagger-parameter in="body" name="fullName" type="string" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="email" type="string" required=false %}
+{% swagger-parameter in="body" name="email" type="string" %}
 
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -187,13 +135,9 @@ To change email, config, password, etc... you can do it from single endpoint
     }
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```javascript
 //email specified but empty
 {
@@ -223,72 +167,76 @@ To change email, config, password, etc... you can do it from single endpoint
   "errorMessage": "User validation failed: config.raindrops_sort: `1` is not a valid enum value for path `raindrops_sort`., config: Validation failed: raindrops_sort: `1` is not a valid enum value for path `raindrops_sort`."
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/connect/{provider}" %}
-{% api-method-summary %}
-Connect social network account
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user/connect/{provider}" method="get" summary="Connect social network account" %}
+{% swagger-description %}
 Connect social network account as sign in authentication option
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="provider" type="string" required=false %}
-`facebook` `google` `twitter` `vkontakte` `dropbox` or `gdrive`
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="path" name="provider" type="string" %}
+`facebook`
 
-{% api-method-response %}
-{% api-method-response-example httpCode=307 %}
-{% api-method-response-example-description %}
+ 
 
-{% endapi-method-response-example-description %}
+`google`
 
+ 
+
+`twitter`
+
+ 
+
+`vkontakte`
+
+ 
+
+`dropbox`
+
+ or 
+
+`gdrive`
+{% endswagger-parameter %}
+
+{% swagger-response status="307" description="" %}
 ```http
 Location: https://some.com/...
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/user/connect/{provider}/revoke" %}
-{% api-method-summary %}
-Disconnect social network account
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user/connect/{provider}/revoke" method="get" summary="Disconnect social network account" %}
+{% swagger-description %}
 Disconnect social network account from available authentication options
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="provider" type="string" required=false %}
-`facebook` `google` `twitter` `vkontakte` `dropbox` or `gdrive`
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="path" name="provider" type="string" %}
+`facebook`
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+ 
 
-{% endapi-method-response-example-description %}
+`google`
 
+ 
+
+`twitter`
+
+ 
+
+`vkontakte`
+
+ 
+
+`dropbox`
+
+ or 
+
+`gdrive`
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```
-
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

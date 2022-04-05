@@ -1,6 +1,58 @@
 # Highlights
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="get" summary="Get highlights of existing raindrop" %}
+Single `highlight` object:
+
+| Field   | Type     | Description                                                                                                                                                                                                                                                                                                          |
+| ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_id    | `String` | Unique id of highlight                                                                                                                                                                                                                                                                                               |
+| text    | `String` | Text of highlight (required)                                                                                                                                                                                                                                                                                         |
+| color   | `String` | <p>Color of highlight. <br>Default <code>yellow</code><br><br>Can be <code>blue</code>, <code>brown</code>, <code>cyan</code>, <code>gray</code>, <code>green</code>, <code>indigo</code>, <code>orange</code>, <code>pink</code>, <code>purple</code>, <code>red</code>, <code>teal</code>, <code>yellow</code></p> |
+| note    | `String` | Optional note for highlight                                                                                                                                                                                                                                                                                          |
+| created | `String` | Creation date of highlight                                                                                                                                                                                                                                                                                           |
+
+{% swagger method="get" path="/rest/v1/highlights" baseUrl="https://api.raindrop.io" summary="Get all highlights" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="page" type="Number" %}
+
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="perpage" type="Number" %}
+How many highlights per page. 50 max. Default 25
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+    "result": true,
+    "items": [
+        {
+            "note": "Trully native macOS app",
+            "color": "red",
+            "text": "Orion is the new WebKit-based browser for Mac",
+            "created": "2022-03-21T14:41:34.059Z",
+            "tags": ["tag1", "tag2"],
+            "_id": "62388e9e48b63606f41e44a6",
+            "raindropRef": 123
+        },
+        {
+            "note": "",
+            "color": "green",
+            "text": "Built on WebKit, Orion gives you a fast, smooth and lightweight browsing experience",
+            "created": "2022-03-21T15:13:21.128Z",
+            "tags": ["tag1", "tag2"],
+            "_id": "62389611058af151c840f667",
+            "raindropRef": 123
+        }
+    ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="get" summary="Get highlights of raindrop" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -39,7 +91,7 @@ Existing raindrop ID
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Add highlight to existing raindrop" %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Add highlight" %}
 {% swagger-description %}
 Just specify a `highlights` array in body with `object` for each highlight
 
@@ -98,7 +150,7 @@ Existing raindrop ID
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Update highlight of existing raindrop" %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Update highlight" %}
 {% swagger-description %}
 Just specify a `highlights` array in body with `object` containing particular `_id` of highlight you want to update and all other fields you want to change.
 
@@ -159,7 +211,7 @@ Should be empty string
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Remove highlight from existing raindrop" %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Remove highlight" %}
 {% swagger-description %}
 Just specify a `highlights` array in body with `object` containing particular `_id` of highlight you want to remove and empty string for `text` field.
 

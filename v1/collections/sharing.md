@@ -11,81 +11,51 @@ description: >-
 
 Every user who shares at least one collection with another user, has a collaborators record in the API response. The record contains a restricted subset of user-specific fields.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Field</th>
-      <th style="text-align:left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">_id</td>
-      <td style="text-align:left">User ID of the collaborator</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">email</td>
-      <td style="text-align:left">
-        <p>Email of the collaborator</p>
-        <p>Empty when authorized user have read-only access</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">email_MD5</td>
-      <td style="text-align:left">MD5 hash of collaborator email. Useful for using with Gravatar for example</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">fullName</td>
-      <td style="text-align:left">Full name of the collaborator</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">role</td>
-      <td style="text-align:left">
-        <p>Access level:</p>
-        <p><b><code>member</code></b> have write access and can invite more users</p>
-        <p><b><code>viewer</code></b> read-only access</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Field      | Description                                                                                                                                                             |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_id       | User ID of the collaborator                                                                                                                                             |
+| email      | <p>Email of the collaborator</p><p>Empty when authorized user have read-only access</p>                                                                                 |
+| email\_MD5 | MD5 hash of collaborator email. Useful for using with Gravatar for example                                                                                              |
+| fullName   | Full name of the collaborator                                                                                                                                           |
+| role       | <p>Access level:</p><p><strong><code>member</code></strong> have write access and can invite more users</p><p><strong><code>viewer</code></strong> read-only access</p> |
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
-{% api-method-summary %}
-Share collection
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" method="post" summary="Share collection" %}
+{% swagger-description %}
+Share collection with another user(s). As result invitation(s) will be send to specified email(s) with link to join collection.
+{% endswagger-description %}
 
-{% api-method-description %}
-Share collection with another user\(s\). As result invitation\(s\) will be send to specified email\(s\) with link to join collection.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="role" type="string" required=true %}
-Access level. Possible values:  
-**`member`**  
+{% swagger-parameter in="body" name="role" type="string" %}
+Access level. Possible values:
+
+\
+
+
+
+
+**`member`**
+
+\
+
+
+
+
 **`viewer`**
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="emails" type="array" required=true %}
-The user email\(s\) with whom to share the project.  
+{% swagger-parameter in="body" name="emails" type="array" %}
+The user email(s) with whom to share the project.
+
+\
+
+
 Maximum 10
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -95,13 +65,9 @@ Maximum 10
     ]
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=400 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="400" description="" %}
 ```javascript
 //'emails' array is empty
 {
@@ -115,13 +81,9 @@ Maximum 10
     "errorMessage": "you cant send more than 10 invites at once"
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="403" description="" %}
 ```javascript
 //When user have more than 100 pending invitations:
 {
@@ -135,35 +97,19 @@ Maximum 10
     "errorMessage": "you dont have permissions to invite more people"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
-{% api-method-summary %}
-Get collaborators list of collection
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" method="get" summary="Get collaborators list of collection" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "items": [
@@ -179,172 +125,120 @@ Existing collection ID
   "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" %}
-{% api-method-summary %}
-Unshare or leave collection
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing" method="delete" summary="Unshare or leave collection" %}
+{% swagger-description %}
+There two possible results of calling this method, depends on who authenticated user is:
 
-{% api-method-description %}
-There two possible results of calling this method, depends on who authenticated user is:  
-- **Owner**: collection will be unshared and all collaborators will be removed  
-- **Member or viewer**: authenticated user will be removed from collaborators list
-{% endapi-method-description %}
+\
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+
+\- 
+
+**Owner**
+
+: collection will be unshared and all collaborators will be removed
+
+\
+
+
+\- 
+
+**Member or viewer**
+
+: authenticated user will be removed from collaborators list
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing/{userId}" %}
-{% api-method-summary %}
-Change access level of collaborator
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing/{userId}" method="put" summary="Change access level of collaborator" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="userId" type="number" required=false %}
+{% swagger-parameter in="path" name="userId" type="number" %}
 User ID of collaborator
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="role" type="string" required=true %}
-**`member`** or **`viewer`**
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="body" name="role" type="string" %}
+**`member`**
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+ or 
 
-{% endapi-method-response-example-description %}
+**`viewer`**
+{% endswagger-parameter %}
 
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing/{userId}" %}
-{% api-method-summary %}
-Delete a collaborator
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/sharing/{userId}" method="delete" summary="Delete a collaborator" %}
+{% swagger-description %}
 Remove an user from shared collection
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="userId" type="number" required=false %}
+{% swagger-parameter in="path" name="userId" type="number" %}
 User ID of collaborator
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/collection/{id}/join" %}
-{% api-method-summary %}
-Accept an invitation
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/join" method="post" summary="Accept an invitation" %}
+{% swagger-description %}
 Accept an invitation to join a shared collection
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="number" required=true %}
+{% swagger-parameter in="path" name="id" type="number" %}
 Existing collection ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="token" type="string" required=true %}
+{% swagger-parameter in="body" name="token" type="string" %}
 Secret token from email
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
     "role": "member"
 }
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="403" description="" %}
 ```javascript
 //Incorrect token
 {
@@ -366,8 +260,5 @@ Secret token from email
     "errorMessage": "You already owner of this collection"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

@@ -4,30 +4,16 @@ In your app you could easily make icon/cover selector from more than 10 000 icon
 
 ![](../../.gitbook/assets/icon-finder.png)
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collections/covers/{text}" %}
-{% api-method-summary %}
-Search for cover
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/covers/{text}" method="get" summary="Search for cover" %}
+{% swagger-description %}
+Search for specific cover (icon)
+{% endswagger-description %}
 
-{% api-method-description %}
-Search for specific cover \(icon\)
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="text" type="string" required=false %}
+{% swagger-parameter in="path" name="text" type="string" %}
 For example "pokemon"
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "items": [
@@ -52,35 +38,19 @@ For example "pokemon"
   "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/collections/covers" %}
-{% api-method-summary %}
-Featured covers
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/covers" method="get" summary="Featured covers" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
+{% swagger-parameter in="path" name="" type="string" %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
+{% endswagger-parameter %}
 
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "items": [
@@ -103,8 +73,5 @@ Featured covers
   ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

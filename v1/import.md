@@ -4,30 +4,16 @@ description: Handy methods to implement import functionality
 
 # Import
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/import/url/parse" %}
-{% api-method-summary %}
-Parse URL
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/import/url/parse" method="get" summary="Parse URL" %}
+{% swagger-description %}
 Parse and extract useful info from any URL
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="url" type="string" required=true %}
+{% swagger-parameter in="query" name="url" type="string" %}
 URL
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 //Success
 {
@@ -95,35 +81,19 @@ URL
   "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/import/url/exists" %}
-{% api-method-summary %}
-Check URL\(s\) existence 
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/import/url/exists" method="post" summary="Check URL(s) existence " %}
+{% swagger-description %}
 Does specified URL's are already saved?
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-body-parameters %}
-{% api-method-parameter name="urls" type="array" required=true %}
+{% swagger-parameter in="body" name="urls" type="array" %}
 URL's
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-ids array contains ID of existing bookmarks
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="ids array contains ID of existing bookmarks" %}
 ```javascript
 //Found
 {
@@ -140,42 +110,28 @@ ids array contains ID of existing bookmarks
     "ids": []
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="post" host="https://api.raindrop.io" path="/rest/v1/import/file" %}
-{% api-method-summary %}
-Parse HTML import file
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/import/file" method="post" summary="Parse HTML import file" %}
+{% swagger-description %}
+Convert HTML bookmark file to JSON. 
 
-{% api-method-description %}
-Convert HTML bookmark file to JSON.   
+\
+
+
 Support Nestcape, Pocket and Instapaper file formats
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-headers %}
-{% api-method-parameter name="Content-Type" type="string" required=true %}
+{% swagger-parameter in="header" name="Content-Type" type="string" %}
 multipart/form-data
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
+{% endswagger-parameter %}
 
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="import" type="string" required=true %}
+{% swagger-parameter in="body" name="import" type="string" %}
 File
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
   "result": true,
@@ -229,8 +185,5 @@ File
   ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}

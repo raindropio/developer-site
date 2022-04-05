@@ -1,29 +1,15 @@
 # Tags
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
-{% api-method-summary %}
-Get tags
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" method="get" summary="Get tags" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="number" required=false %}
+{% swagger-parameter in="path" name="collectionId" type="number" %}
 Optional collection ID, when not specified all tags from all collections will be retrieved
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -35,163 +21,109 @@ Optional collection ID, when not specified all tags from all collections will be
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
-{% api-method-summary %}
-Rename tag
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" method="put" summary="Rename tag" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="number" required=false %}
+{% swagger-parameter in="path" name="collectionId" type="number" %}
 It's possible to restrict rename action to just one collection. It's optional
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="replace" type="string" required=true %}
+{% swagger-parameter in="body" name="replace" type="string" %}
 New name
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="tags" type="array" required=true %}
-Specify **array** with **only one** string \(name of a tag\)
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% swagger-parameter in="body" name="tags" type="array" %}
+Specify 
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+**array**
 
-{% endapi-method-response-example-description %}
+ with 
 
+**only one**
+
+ string (name of a tag)
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="put" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
-{% api-method-summary %}
-Merge tags
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" method="put" summary="Merge tags" %}
+{% swagger-description %}
+Basically this action rename bunch of 
 
-{% api-method-description %}
-Basically this action rename bunch of `tags` to new name \(`replace` field\)
-{% endapi-method-description %}
+`tags`
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="string" required=false %}
+ to new name (
+
+`replace`
+
+ field)
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="collectionId" type="string" %}
 It's possible to restrict merge action to just one collection. It's optional
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="replace" type="string" required=true %}
+{% swagger-parameter in="body" name="replace" type="string" %}
 New name
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="tags" type="array" required=true %}
+{% swagger-parameter in="body" name="tags" type="array" %}
 List of tags
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="delete" host="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" %}
-{% api-method-summary %}
-Remove tag\(s\)
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/tags/{collectionId}" method="delete" summary="Remove tag(s)" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="collectionId" type="string" required=false %}
+{% swagger-parameter in="path" name="collectionId" type="string" %}
 It's possible to restrict remove action to just one collection. It's optional
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endswagger-parameter %}
 
-{% api-method-body-parameters %}
-{% api-method-parameter name="tags" type="array" required=true %}
+{% swagger-parameter in="body" name="tags" type="array" %}
 List of tags
-{% endapi-method-parameter %}
-{% endapi-method-body-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+{% endswagger-response %}
+{% endswagger %}
 
-{% api-method method="get" host="https://api.raindrop.io" path="/rest/v1/tags/suggest/{raindropId}" %}
-{% api-method-summary %}
-Suggest tags
-{% endapi-method-summary %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/tags/suggest/{raindropId}" method="get" summary="Suggest tags" %}
+{% swagger-description %}
 
-{% api-method-description %}
+{% endswagger-description %}
 
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="raindropId" type="number" required=true %}
+{% swagger-parameter in="path" name="raindropId" type="number" %}
 Raindrop ID
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="" %}
 ```javascript
 {
     "result": true,
@@ -201,8 +133,5 @@ Raindrop ID
     ]
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
+{% endswagger-response %}
+{% endswagger %}
