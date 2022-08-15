@@ -56,6 +56,54 @@ How many highlights per page. 50 max. Default 25
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="get" path="/rest/v1/highlights/{collectionId}" baseUrl="https://api.raindrop.io" summary="Get all highlights in a collection" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="collectionId" type="Number" required="true" %}
+Collection ID
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="page" type="Number" %}
+
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="perpage" type="Number" %}
+How many highlights per page. 50 max. Default 25
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+    "result": true,
+    "items": [
+        {
+            "note": "Trully native macOS app",
+            "color": "red",
+            "text": "Orion is the new WebKit-based browser for Mac",
+            "created": "2022-03-21T14:41:34.059Z",
+            "tags": ["tag1", "tag2"],
+            "_id": "62388e9e48b63606f41e44a6",
+            "raindropRef": 123,
+            "link": "https://apple.com"
+        },
+        {
+            "note": "",
+            "color": "green",
+            "text": "Built on WebKit, Orion gives you a fast, smooth and lightweight browsing experience",
+            "created": "2022-03-21T15:13:21.128Z",
+            "tags": ["tag1", "tag2"],
+            "_id": "62389611058af151c840f667",
+            "raindropRef": 123,
+            "link": "https://apple.com"
+        }
+    ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
 {% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="get" summary="Get highlights of raindrop" %}
 {% swagger-description %}
 
