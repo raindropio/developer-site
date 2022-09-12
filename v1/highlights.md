@@ -6,6 +6,7 @@ Single `highlight` object:
 | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \_id    | `String` | Unique id of highlight                                                                                                                                                                                                                                                                                               |
 | text    | `String` | Text of highlight (required)                                                                                                                                                                                                                                                                                         |
+| title   | `String` | Title of bookmark                                                                                                                                                                                                                                                                                                    |
 | color   | `String` | <p>Color of highlight. <br>Default <code>yellow</code><br><br>Can be <code>blue</code>, <code>brown</code>, <code>cyan</code>, <code>gray</code>, <code>green</code>, <code>indigo</code>, <code>orange</code>, <code>pink</code>, <code>purple</code>, <code>red</code>, <code>teal</code>, <code>yellow</code></p> |
 | note    | `String` | Optional note for highlight                                                                                                                                                                                                                                                                                          |
 | created | `String` | Creation date of highlight                                                                                                                                                                                                                                                                                           |
@@ -38,7 +39,8 @@ How many highlights per page. 50 max. Default 25
             "tags": ["tag1", "tag2"],
             "_id": "62388e9e48b63606f41e44a6",
             "raindropRef": 123,
-            "link": "https://apple.com"
+            "link": "https://apple.com",
+            "title": "Orion Browser"
         },
         {
             "note": "",
@@ -48,7 +50,8 @@ How many highlights per page. 50 max. Default 25
             "tags": ["tag1", "tag2"],
             "_id": "62389611058af151c840f667",
             "raindropRef": 123,
-            "link": "https://apple.com"
+            "link": "https://apple.com",
+            "title": "Apple"
         }
     ]
 }
@@ -86,7 +89,8 @@ How many highlights per page. 50 max. Default 25
             "tags": ["tag1", "tag2"],
             "_id": "62388e9e48b63606f41e44a6",
             "raindropRef": 123,
-            "link": "https://apple.com"
+            "link": "https://apple.com",
+            "title": "Apple"
         },
         {
             "note": "",
@@ -96,7 +100,8 @@ How many highlights per page. 50 max. Default 25
             "tags": ["tag1", "tag2"],
             "_id": "62389611058af151c840f667",
             "raindropRef": 123,
-            "link": "https://apple.com"
+            "link": "https://apple.com",
+            "title": "Apple"
         }
     ]
 }
