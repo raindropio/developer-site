@@ -211,14 +211,14 @@ Existing raindrop ID
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/file" method="put" summary="Upload file" %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/file" method="put" summary="Upload file" %}
 {% swagger-description %}
-To upload file you need to create single raindrop with any details, and then call this method for this raindrop. Sorry, will be simplified in the future.
-{% endswagger-description %}
+Make sure to send PUT request with 
 
-{% swagger-parameter in="path" name="id" type="number" required="true" %}
-Existing raindrop ID
-{% endswagger-parameter %}
+[multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST#example)
+
+ body
+{% endswagger-description %}
 
 {% swagger-parameter in="header" name="Content-Type" type="string" required="true" %}
 multipart/form-data
@@ -226,6 +226,10 @@ multipart/form-data
 
 {% swagger-parameter in="body" name="file" type="object" required="true" %}
 File
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="collectionId" %}
+Collection Id
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
