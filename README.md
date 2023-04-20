@@ -8,7 +8,7 @@ description: >-
 
 This is the official documentation for Raindrop.io API. A reference to the functionality our public API provides with detailed description of each API endpoint, parameters, and examples.
 
-Please note that you must [register your application](https://app.raindrop.io/#/settings/apps/dev) and authenticate with OAuth when making requests. Before doing so, be sure to read our [Terms & Guidelines](terms.md) to learn how the API may be used.
+Please note that you must [register your application](https://app.raindrop.io/settings/integrations) and authenticate with OAuth when making requests. Before doing so, be sure to read our [Terms & Guidelines](terms.md) to learn how the API may be used.
 
 ### Format
 
