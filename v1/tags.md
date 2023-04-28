@@ -113,25 +113,3 @@ List of tags
 ```
 {% endswagger-response %}
 {% endswagger %}
-
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/tags/suggest/{raindropId}" method="get" summary="Suggest tags" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-
-{% swagger-parameter in="path" name="raindropId" type="number" %}
-Raindrop ID
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
-```javascript
-{
-    "result": true,
-    "tags": [
-        "app",
-        "development"
-    ]
-}
-```
-{% endswagger-response %}
-{% endswagger %}

@@ -62,13 +62,13 @@ Unauthorized
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user/{id}" method="get" summary="Get user by ID" %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user/{name}" method="get" summary="Get user by name" %}
 {% swagger-description %}
 Get's publicly available user details
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="id" type="number" %}
-User ID
+{% swagger-parameter in="path" name="name" type="number" required="true" %}
+Username
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}

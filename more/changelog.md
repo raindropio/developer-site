@@ -1,5 +1,11 @@
 # Changelog
 
+### 1.0.4
+
+* Please use `/filters/:collectionId` route instead of `/raindrops/:collectionId/filters`
+* Route `GET /user/:id` removed
+* Route `GET /tags/suggest` removed
+
 ### 1.0.3
 
 * Merge and remove multiple collections endpoint
@@ -12,4 +18,3 @@
 
 * Raindrop now have `created` field
 * Raindrop now update `lastUpdate` field on each update
-

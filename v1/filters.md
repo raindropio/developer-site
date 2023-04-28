@@ -19,7 +19,7 @@ To help users easily find their content you can suggest context aware filters li
 | tags             | `Array<Object>` | List of tags in format `{"_id": "tag name", "count": 1}` |
 | types            | `Array<Object>` | List of types in format `{"_id": "type", "count": 1}`    |
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}/filters" method="get" summary="Get filters" %}
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/filters/{collectionId}" method="get" summary="Get filters" %}
 {% swagger-description %}
 
 {% endswagger-description %}
