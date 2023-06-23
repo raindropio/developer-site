@@ -352,3 +352,91 @@ Location: https://s3.aws...
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/suggest" method="post" summary="Suggest collection and tags for new bookmark" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="link" type="string" required="true" %}
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
+```json
+{
+    "result": true,
+    "item": {
+        "collections": [
+            {
+                "$id": 568368
+            },
+            {
+                "$id": 8519567
+            },
+            {
+                "$id": 1385626
+            },
+            {
+                "$id": 8379661
+            },
+            {
+                "$id": 20865985
+            }
+        ],
+        "tags": [
+            "fonts",
+            "free",
+            "engineering",
+            "icons",
+            "invalid_parser"
+        ]
+    }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/suggest" method="get" summary="Suggest collection and tags for existing bookmark" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" required="true" %}
+Bookmark id
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
+```json
+{
+    "result": true,
+    "item": {
+        "collections": [
+            {
+                "$id": 568368
+            },
+            {
+                "$id": 8519567
+            },
+            {
+                "$id": 1385626
+            },
+            {
+                "$id": 8379661
+            },
+            {
+                "$id": 20865985
+            }
+        ],
+        "tags": [
+            "fonts",
+            "free",
+            "engineering",
+            "icons",
+            "invalid_parser"
+        ]
+    }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
