@@ -15,6 +15,7 @@ description: We call bookmarks (or items) as "raindrops"
 | created        | `String`        | Creation date                                                                     |
 | domain         | `String`        | <p>Hostname of a link.<br>Files always have <code>raindrop.io</code> hostname</p> |
 | excerpt        | `String`        | Description; max length: 10000                                                    |
+| note           | `String`        | Note; max length: 10000                                                           |
 | lastUpdate     | `String`        | Update date                                                                       |
 | link           | `String`        | URL                                                                               |
 | media          | `Array<Object>` | ​Covers list in format: `[ {"link":"url"} ]`                                      |
