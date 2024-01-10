@@ -25,33 +25,13 @@ To help users easily find their content you can suggest context aware filters li
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="collectionId" type="string" %}
-Collection ID. 
-
-`0`
-
- for all
+Collection ID. `0` for all
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="tagsSort" type="string" %}
-Sort tags by:
-
-\
-
-
-
-
-**`-count`**
-
- by count, default
-
-\
-
-
-
-
-**`_id`**
-
- by name
+Sort tags by:\
+**`-count`** by count, default\
+**`_id`** by name
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="search" type="string" %}

@@ -99,7 +99,7 @@ Username
 
 {% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user" method="put" summary="Update user" %}
 {% swagger-description %}
-To change email, config, password, etc... you can do it from single endpoint 
+To change email, config, password, etc... you can do it from single endpoint&#x20;
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="groups" type="array" %}
@@ -176,27 +176,7 @@ Connect social network account as sign in authentication option
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="provider" type="string" %}
-`facebook`
-
- 
-
-`google`
-
- 
-
-`twitter`
-
- 
-
-`vkontakte`
-
- 
-
-`dropbox`
-
- or 
-
-`gdrive`
+`facebook` `google` `twitter` `vkontakte` `dropbox` or `gdrive`
 {% endswagger-parameter %}
 
 {% swagger-response status="307" description="" %}
@@ -212,27 +192,7 @@ Disconnect social network account from available authentication options
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="provider" type="string" %}
-`facebook`
-
- 
-
-`google`
-
- 
-
-`twitter`
-
- 
-
-`vkontakte`
-
- 
-
-`dropbox`
-
- or 
-
-`gdrive`
+`facebook` `google` `twitter` `vkontakte` `dropbox` or `gdrive`
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
