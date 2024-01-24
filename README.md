@@ -50,11 +50,11 @@ For requests using OAuth, you can make up to 120 requests per minute per authent
 
 The headers tell you everything you need to know about your current rate limit status:
 
-| Header name         | Description                                                                       |
-| ------------------- | --------------------------------------------------------------------------------- |
-| X-RateLimit-Limit   | The maximum number of requests that the consumer is permitted to make per minute. |
-| RateLimit-Remaining | The number of requests remaining in the current rate limit window.                |
-| X-RateLimit-Reset   | The time at which the current rate limit window resets in UTC epoch seconds.      |
+| Header name           | Description                                                                       |
+| --------------------- | --------------------------------------------------------------------------------- |
+| X-RateLimit-Limit     | The maximum number of requests that the consumer is permitted to make per minute. |
+| X-RateLimit-Remaining | The number of requests remaining in the current rate limit window.                |
+| X-RateLimit-Reset     | The time at which the current rate limit window resets in UTC epoch seconds.      |
 
 Once you go over the rate limit you will receive an error response:
 
