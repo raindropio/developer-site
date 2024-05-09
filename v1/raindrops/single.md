@@ -6,90 +6,53 @@ description: >-
 
 # Single raindrop
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="get" summary="Get raindrop" %}
-{% swagger-description %}
+## Get raindrop
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/raindrop/{id}`
 
-{% swagger-parameter in="path" name="id" type="number" required="true" %}
-Existing raindrop ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200" description="" %}
+| Name                                 | Type   | Description          |
+| ------------------------------------ | ------ | -------------------- |
+| id<mark style="color:red;">\*</mark> | number | Existing raindrop ID |
+
+{% tabs %}
+{% tab title="200 " %}
 ```
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop" method="post" summary="Create raindrop" %}
-{% swagger-description %}
+## Create raindrop
+
+<mark style="color:green;">`POST`</mark> `https://api.raindrop.io/rest/v1/raindrop`
+
 Description and possible values of fields described in "Fields"
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="pleaseParse" type="object" %}
-Specify empty object to automatically parse meta data (cover, description, html) in the background
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="created" type="string" %}
+| Name                                   | Type    | Description                                                                                                                                |
+| -------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| pleaseParse                            | object  | Specify empty object to automatically parse meta data (cover, description, html) in the background                                         |
+| created                                | string  |                                                                                                                                            |
+| lastUpdate                             | string  |                                                                                                                                            |
+| order                                  | number  | <p>Specify sort order (ascending).<br>For example if you want to move raindrop to the first place set this field to <strong>0</strong></p> |
+| important                              | boolean |                                                                                                                                            |
+| tags                                   | array   |                                                                                                                                            |
+| media                                  | array   |                                                                                                                                            |
+| cover                                  | string  |                                                                                                                                            |
+| collection                             | object  |                                                                                                                                            |
+| type                                   | string  |                                                                                                                                            |
+| excerpt                                | string  |                                                                                                                                            |
+| title                                  | string  |                                                                                                                                            |
+| link<mark style="color:red;">\*</mark> | string  |                                                                                                                                            |
+| highlights                             | array   |                                                                                                                                            |
+| reminder                               | object  | `{"date":"YYYY-MM-DDTHH:mm:ss.sssZ"}`                                                                                                      |
 
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="lastUpdate" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="order" type="number" %}
-Specify sort order (ascending).
-
-\
 
 
-For example if you want to move raindrop to the first place set this field to 
-
-**0**
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="important" type="boolean" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="tags" type="array" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="media" type="array" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="cover" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="collection" type="object" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="type" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="excerpt" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="title" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="link" type="string" required="true" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="highlights" type="array" %}
-
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -98,82 +61,43 @@ For example if you want to move raindrop to the first place set this field to
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="put" summary="Update raindrop" %}
-{% swagger-description %}
+## Update raindrop
+
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/raindrop/{id}`
+
 Description and possible values of fields described in "Fields"
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="id" type="number" required="true" %}
-Existing raindrop ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="body" name="created" type="string" %}
+| Name                                 | Type   | Description          |
+| ------------------------------------ | ------ | -------------------- |
+| id<mark style="color:red;">\*</mark> | number | Existing raindrop ID |
 
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="lastUpdate" type="string" %}
+| Name        | Type    | Description                                                                                                                                |
+| ----------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| created     | string  |                                                                                                                                            |
+| lastUpdate  | string  |                                                                                                                                            |
+| pleaseParse | object  | Specify empty object to re-parse link meta data (cover, type, html) in the background                                                      |
+| order       | number  | <p>Specify sort order (ascending).<br>For example if you want to move raindrop to the first place set this field to <strong>0</strong></p> |
+| important   | boolean |                                                                                                                                            |
+| tags        | array   |                                                                                                                                            |
+| media       | array   |                                                                                                                                            |
+| cover       | string  |                                                                                                                                            |
+| collection  | object  |                                                                                                                                            |
+| type        | string  |                                                                                                                                            |
+| excerpt     | string  |                                                                                                                                            |
+| title       | string  |                                                                                                                                            |
+| link        | string  |                                                                                                                                            |
+| highlights  | array   |                                                                                                                                            |
+| reminder    | object  |                                                                                                                                            |
 
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="pleaseParse" type="object" %}
-Specify empty object to re-parse link meta data (cover, type, html) in the background
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="order" type="number" %}
-Specify sort order (ascending).
-
-\
-
-
-For example if you want to move raindrop to the first place set this field to 
-
-**0**
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="important" type="boolean" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="tags" type="array" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="media" type="array" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="cover" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="collection" type="object" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="type" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="excerpt" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="title" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="highlights" type="array" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="link" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -182,57 +106,52 @@ For example if you want to move raindrop to the first place set this field to
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}" method="delete" summary="Remove raindrop" %}
-{% swagger-description %}
-When you remove raindrop it will be moved to user 
+## Remove raindrop
 
-`Trash`
+<mark style="color:red;">`DELETE`</mark> `https://api.raindrop.io/rest/v1/raindrop/{id}`
 
- collection. But if you try to remove raindrop from 
+When you remove raindrop it will be moved to user `Trash` collection. But if you try to remove raindrop from `Trash`, it will be removed permanently.
 
-`Trash`
+#### Path Parameters
 
-, it will be removed permanently.
-{% endswagger-description %}
+| Name                                 | Type   | Description          |
+| ------------------------------------ | ------ | -------------------- |
+| id<mark style="color:red;">\*</mark> | number | Existing raindrop ID |
 
-{% swagger-parameter in="path" name="id" type="number" required="true" %}
-Existing raindrop ID
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/file" method="put" summary="Upload file" %}
-{% swagger-description %}
-Make sure to send PUT request with 
+## Upload file
 
-[multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST#example)
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/raindrop/file`
 
- body
-{% endswagger-description %}
+Make sure to send PUT request with [multipart/form-data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST#example) body
 
-{% swagger-parameter in="header" name="Content-Type" type="string" required="true" %}
-multipart/form-data
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="file" type="object" required="true" %}
-File
-{% endswagger-parameter %}
+| Name                                           | Type   | Description         |
+| ---------------------------------------------- | ------ | ------------------- |
+| Content-Type<mark style="color:red;">\*</mark> | string | multipart/form-data |
 
-{% swagger-parameter in="body" name="collectionId" %}
-Collection Id
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-response status="200" description="" %}
+| Name                                   | Type   | Description   |
+| -------------------------------------- | ------ | ------------- |
+| file<mark style="color:red;">\*</mark> | object | File          |
+| collectionId                           | String | Collection Id |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -249,9 +168,9 @@ Collection Id
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400" description="" %}
+{% tab title="400 " %}
 ```javascript
 //file is not specified
 {
@@ -274,27 +193,35 @@ Collection Id
   "errorMessage": "File size limit"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cover" method="put" summary="Upload cover" %}
-{% swagger-description %}
+## Upload cover
+
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/raindrop/{id}/cover`
+
 PNG, GIF or JPEG
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="id" type="number" required="true" %}
-Existing raindrop ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" name="Content-Type" type="string" required="true" %}
-multipart/form-data
-{% endswagger-parameter %}
+| Name                                 | Type   | Description          |
+| ------------------------------------ | ------ | -------------------- |
+| id<mark style="color:red;">\*</mark> | number | Existing raindrop ID |
 
-{% swagger-parameter in="body" name="cover" type="object" required="true" %}
-File
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200" description="" %}
+| Name                                           | Type   | Description         |
+| ---------------------------------------------- | ------ | ------------------- |
+| Content-Type<mark style="color:red;">\*</mark> | string | multipart/form-data |
+
+#### Request Body
+
+| Name                                    | Type   | Description |
+| --------------------------------------- | ------ | ----------- |
+| cover<mark style="color:red;">\*</mark> | object | File        |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -309,9 +236,9 @@ File
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400" description="" %}
+{% tab title="400 " %}
 ```javascript
 //file is not specified
 {
@@ -334,35 +261,41 @@ File
   "errorMessage": "File size limit"
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/cache" method="get" summary="Get permanent copy" %}
-{% swagger-description %}
+## Get permanent copy
+
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/raindrop/{id}/cache`
+
 Links permanently saved with all content (only in PRO plan). Using this method you can navigate to this copy.
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="id" type="number" required="true" %}
-Existing raindrop ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="307" description="" %}
+| Name                                 | Type   | Description          |
+| ------------------------------------ | ------ | -------------------- |
+| id<mark style="color:red;">\*</mark> | number | Existing raindrop ID |
+
+{% tabs %}
+{% tab title="307 " %}
 ```http
 Location: https://s3.aws...
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/suggest" method="post" summary="Suggest collection and tags for new bookmark" %}
-{% swagger-description %}
+## Suggest collection and tags for new bookmark
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://api.raindrop.io/rest/v1/raindrop/suggest`
 
-{% swagger-parameter in="body" name="link" type="string" required="true" %}
+#### Request Body
 
-{% endswagger-parameter %}
+| Name                                   | Type   | Description |
+| -------------------------------------- | ------ | ----------- |
+| link<mark style="color:red;">\*</mark> | string |             |
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```json
 {
     "result": true,
@@ -394,19 +327,21 @@ Location: https://s3.aws...
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrop/{id}/suggest" method="get" summary="Suggest collection and tags for existing bookmark" %}
-{% swagger-description %}
+## Suggest collection and tags for existing bookmark
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/raindrop/{id}/suggest`
 
-{% swagger-parameter in="path" required="true" %}
-Bookmark id
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200" description="" %}
+| Name                               | Type   | Description |
+| ---------------------------------- | ------ | ----------- |
+| <mark style="color:red;">\*</mark> | String | Bookmark id |
+
+{% tabs %}
+{% tab title="200 " %}
 ```json
 {
     "result": true,
@@ -438,5 +373,5 @@ Bookmark id
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}

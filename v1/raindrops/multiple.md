@@ -19,52 +19,44 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
 | perpage      | `Integer`        | Query parameter. How many raindrops per page. 50 max                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ids          | `Array<Integer>` | You can specify exact raindrop ID's for batch update/remove methods                                                                                                                                                                                                                                                                                                                                                                                              |
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" method="get" summary="Get raindrops" %}
-{% swagger-description %}
+## Get raindrops
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/raindrops/{collectionId}`
 
-{% swagger-parameter in="path" name="collectionId" type="number" required="true" %}
-Collection ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="query" name="sort" type="string" %}
+| Name                                           | Type   | Description   |
+| ---------------------------------------------- | ------ | ------------- |
+| collectionId<mark style="color:red;">\*</mark> | number | Collection ID |
 
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="perpage" type="number" %}
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| sort    | string |             |
+| perpage | number |             |
+| page    | number |             |
+| search  | string |             |
 
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="page" type="number" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="search" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops" method="post" summary="Create many raindrops" %}
-{% swagger-description %}
+## Create many raindrops
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://api.raindrop.io/rest/v1/raindrops`
 
-{% swagger-parameter in="body" name="items" type="array" required="true" %}
-Array of objects. Format of single object described in "Create single raindrop".
+#### Request Body
 
-\
+| Name                                    | Type  | Description                                                                                                              |
+| --------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------ |
+| items<mark style="color:red;">\*</mark> | array | <p>Array of objects. Format of single object described in "Create single raindrop".<br>Maximum 100 objects in array!</p> |
 
-
-Maximum 100 objects in array!
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -75,147 +67,72 @@ Maximum 100 objects in array!
     ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" method="put" summary="Update many raindrops" %}
-{% swagger-description %}
-Specify optional 
+## Update many raindrops
 
-`search`
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/raindrops/{collectionId}`
 
- and/or 
-
-`ids`
-
- parameters to limit raindrops that will be updated.
-
-\
-
-
+Specify optional `search` and/or `ids` parameters to limit raindrops that will be updated.\
 Possible fields that could be updated are described in "Body Parameters"
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="collectionId" type="number" required="true" %}
+#### Path Parameters
 
-{% endswagger-parameter %}
+| Name                                           | Type   | Description |
+| ---------------------------------------------- | ------ | ----------- |
+| collectionId<mark style="color:red;">\*</mark> | number |             |
 
-{% swagger-parameter in="body" name="ids" type="array" %}
+#### Request Body
 
-{% endswagger-parameter %}
+| Name       | Type    | Description                                                                                                                                     |
+| ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| ids        | array   |                                                                                                                                                 |
+| important  | boolean | <p>TRUE - mark as "favorite"<br>FALSE - unmark as "favorite"</p>                                                                                |
+| tags       | array   | <p>Will append specified tags to raindrops.<br>Or will remove all tags from raindrops if <code>[]</code> (empty array) is specified</p>         |
+| media      | array   | <p>Will append specified media items to raindrops.<br>Or will remove all media from raindrops if <code>[]</code> (empty array) is specified</p> |
+| cover      | string  | <p>Set URL for cover.<br><em>Tip:</em> specify <code>&#x3C;screenshot></code> to set screenshots for all raindrops</p>                          |
+| collection | object  | Specify `{"$id": collectionId}` to move raindrops to other collection                                                                           |
 
-{% swagger-parameter in="body" name="important" type="boolean" %}
-TRUE - mark as "favorite"
-
-\
-
-
-FALSE - unmark as "favorite"
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="tags" type="array" %}
-Will append specified tags to raindrops.
-
-\
-
-
-Or will remove all tags from raindrops if 
-
-`[]`
-
- (empty array) is specified
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="media" type="array" %}
-Will append specified media items to raindrops.
-
-\
-
-
-Or will remove all media from raindrops if 
-
-`[]`
-
- (empty array) is specified
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="cover" type="string" %}
-Set URL for cover.
-
-\
-
-
-_Tip:_
-
- specify 
-
-`<screenshot>`
-
- to set screenshots for all raindrops
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="collection" type="object" %}
-Specify 
-
-`{"$id": collectionId}`
-
- to move raindrops to other collection
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/raindrops/{collectionId}" method="delete" summary="Remove many raindrops" %}
-{% swagger-description %}
-Specify optional 
+## Remove many raindrops
 
-`search`
+<mark style="color:red;">`DELETE`</mark> `https://api.raindrop.io/rest/v1/raindrops/{collectionId}`
 
- and/or 
+Specify optional `search` and/or `ids` parameters to limit raindrops that will be moved to "**Trash**"\
+When `:collectionId` is **-99**, raindrops will be permanently removed!
 
-`ids`
+#### Path Parameters
 
- parameters to limit raindrops that will be moved to "
+| Name                                           | Type   | Description |
+| ---------------------------------------------- | ------ | ----------- |
+| collectionId<mark style="color:red;">\*</mark> | number |             |
 
-**Trash**
+#### Query Parameters
 
-"
+| Name   | Type   | Description |
+| ------ | ------ | ----------- |
+| search | string |             |
 
-\
+#### Request Body
 
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| ids  | array |             |
 
-When 
-
-`:collectionId`
-
- is 
-
-**-99**
-
-, raindrops will be permanently removed!
-{% endswagger-description %}
-
-{% swagger-parameter in="path" name="collectionId" type="number" required="true" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="search" type="string" %}
-
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="ids" type="array" %}
-
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
     "modified": 330
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
