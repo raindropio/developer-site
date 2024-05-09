@@ -47,7 +47,7 @@ Description and possible values of fields described in "Fields"
 | title                                  | string  |                                                                                                                                            |
 | link<mark style="color:red;">\*</mark> | string  |                                                                                                                                            |
 | highlights                             | array   |                                                                                                                                            |
-| reminder                               | object  | `{"date":"YYYY-MM-DDTHH:mm:ss.sssZ"}`                                                                                                      |
+| reminder                               | object  |                                                                                                                                            |
 
 
 
