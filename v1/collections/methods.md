@@ -1,11 +1,13 @@
 # Collection methods
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="get" summary="Get root collections" %}
-{% swagger-description %}
+## Get root collections
+
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/collections`
+
 Returns JSON-encoded array containing all root collections
-{% endswagger-description %}
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "result": true,
@@ -38,19 +40,17 @@ Returns JSON-encoded array containing all root collections
   ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/childrens" method="get" summary="Get child collections" %}
-{% swagger-description %}
-Returns JSON-encoded array containing all nested collections (that have positive 
+## Get child collections
 
-`parent.$id`
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/collections/childrens`
 
-)
-{% endswagger-description %}
+Returns JSON-encoded array containing all nested collections (that have positive `parent.$id`)
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "result": true,
@@ -72,7 +72,7 @@ Returns JSON-encoded array containing all nested collections (that have positive
       "created": "2019-10-09T11:49:53.518Z",
       "expanded": false,
       "lastUpdate": "2019-11-27T17:51:19.085Z",
-      "parent_id": 1111,
+      "parent": { "$id": 1111 },
       "public": false,
       "sort": 8492393,
       "title": "Development",
@@ -84,19 +84,21 @@ Returns JSON-encoded array containing all nested collections (that have positive
   ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}" method="get" summary="Get collection" %}
-{% swagger-description %}
+## Get collection
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/collection/{id}`
 
-{% swagger-parameter in="path" name="id" type="number" %}
-Collection ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200" description="" %}
+| Name | Type   | Description   |
+| ---- | ------ | ------------- |
+| id   | number | Collection ID |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "result": true,
@@ -130,41 +132,28 @@ Collection ID
   }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection" method="post" summary="Create collection" %}
-{% swagger-description %}
+## Create collection
+
+<mark style="color:green;">`POST`</mark> `https://api.raindrop.io/rest/v1/collection`
+
 Create a new collection
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="view" type="string" %}
-More details in "Fields"
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="title" type="string" %}
-Name of the collection
-{% endswagger-parameter %}
+| Name       | Type    | Description                                                                                                                       |
+| ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| view       | string  | More details in "Fields"                                                                                                          |
+| title      | string  | Name of the collection                                                                                                            |
+| sort       | number  | The order of collection (descending). Defines the position of the collection among all the collections with the same `parent.$id` |
+| public     | boolean | Collection and raindrops that it contains will be accessible without authentication?                                              |
+| parent.$id | integer | The ID of parent collection. Empty for root collections                                                                           |
+| cover      | array   | Collection cover url                                                                                                              |
 
-{% swagger-parameter in="body" name="sort" type="number" %}
-The order of collection (descending). Defines the position of the collection among all the collections with the same 
-
-`parent.$id`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="public" type="boolean" %}
-Collection and raindrops that it contains will be accessible without authentication?
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="parent.$id" type="integer" %}
-The ID of parent collection. Empty for root collections
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="cover" type="array" %}
-Collection cover url
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -173,9 +162,9 @@ Collection cover url
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400" description="Incorrect 'view' field value" %}
+{% tab title="400 Incorrect 'view' field value" %}
 ```javascript
 {
     "result": false,
@@ -183,49 +172,35 @@ Collection cover url
     "errorMessage": "Collection validation failed: view: `bla` is not a valid enum value for path `view`."
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}" method="put" summary="Update collection" %}
-{% swagger-description %}
+## Update collection
+
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/collection/{id}`
+
 Update an existing collection
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="id" type="number" %}
-Existing collection id
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="body" name="expanded" type="boolean" %}
-Whether the collection`s sub-collections are expanded
-{% endswagger-parameter %}
+| Name | Type   | Description            |
+| ---- | ------ | ---------------------- |
+| id   | number | Existing collection id |
 
-{% swagger-parameter in="body" name="view" type="string" %}
-More details in "Fields"
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="title" type="string" %}
-Name of the collection
-{% endswagger-parameter %}
+| Name       | Type    | Description                                                                                                                       |
+| ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| expanded   | boolean | Whether the collection\`s sub-collections are expanded                                                                            |
+| view       | string  | More details in "Fields"                                                                                                          |
+| title      | string  | Name of the collection                                                                                                            |
+| sort       | number  | The order of collection (descending). Defines the position of the collection among all the collections with the same `parent.$id` |
+| public     | boolean | Collection and raindrops that it contains will be accessible without authentication?                                              |
+| parent.$id | integer | The ID of parent collection. Empty for root collections                                                                           |
+| cover      | array   | Collection cover url                                                                                                              |
 
-{% swagger-parameter in="body" name="sort" type="number" %}
-The order of collection (descending). Defines the position of the collection among all the collections with the same 
-
-`parent.$id`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="public" type="boolean" %}
-Collection and raindrops that it contains will be accessible without authentication?
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="parent.$id" type="integer" %}
-The ID of parent collection. Empty for root collections
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="cover" type="array" %}
-Collection cover url
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -234,27 +209,35 @@ Collection cover url
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}/cover" method="put" summary="Upload cover" %}
-{% swagger-description %}
+## Upload cover
+
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/collection/{id}/cover`
+
 It's possible to upload cover from desktop. PNG, GIF and JPEG supported
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="id" type="string" %}
-Existing collection ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="header" name="Content-Type" type="string" %}
-multipart/form-data
-{% endswagger-parameter %}
+| Name | Type   | Description            |
+| ---- | ------ | ---------------------- |
+| id   | string | Existing collection ID |
 
-{% swagger-parameter in="body" name="cover" type="object" %}
-File
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-response status="200" description="" %}
+| Name         | Type   | Description         |
+| ------------ | ------ | ------------------- |
+| Content-Type | string | multipart/form-data |
+
+#### Request Body
+
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| cover | object | File        |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
@@ -263,175 +246,149 @@ File
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/{id}" method="delete" summary="Remove collection" %}
-{% swagger-description %}
-Remove an existing collection and all its descendants.
+## Remove collection
 
-\
+<mark style="color:red;">`DELETE`</mark> `https://api.raindrop.io/rest/v1/collection/{id}`
 
-
+Remove an existing collection and all its descendants.\
 Raindrops will be moved to "Trash" collection
-{% endswagger-description %}
 
-{% swagger-parameter in="path" name="id" type="number" %}
-Existing collection ID
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-response status="200" description="" %}
+| Name | Type   | Description            |
+| ---- | ------ | ---------------------- |
+| id   | number | Existing collection ID |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="delete" summary="Remove multiple collections" %}
-{% swagger-description %}
-Remove multiple collections at once.
+## Remove multiple collections
 
-\
+<mark style="color:red;">`DELETE`</mark> `https://api.raindrop.io/rest/v1/collections`
 
+Remove multiple collections at once.\
+Nested collections are ignored (include ID's in `ids` array to remove them)
 
-Nested collections are ignored (include ID's in 
+#### Request Body
 
-`ids`
+| Name | Type  | Description            |
+| ---- | ----- | ---------------------- |
+| ids  | array | Array of collection ID |
 
- array to remove them)
-{% endswagger-description %}
-
-{% swagger-parameter in="body" name="ids" type="array" %}
-Array of collection ID
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="put" summary="Reorder all collections" %}
-{% swagger-description %}
-Updates order of all collections 
-{% endswagger-description %}
+## Reorder all collections
 
-{% swagger-parameter in="body" name="sort" type="string" %}
-Change order of all collections.
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/collections`
 
-\
+Updates order of all collections&#x20;
 
+#### Request Body
 
-Possible values:
+| Name | Type   | Description                                                                                                                                                                                          |
+| ---- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sort | string | <p>Change order of all collections.<br>Possible values:<br>"title" - sort alphabetically ascending<br>"-title" - sort alphabetically descending<br>"-count" - sort by raindrops count descending</p> |
 
-\
-
-
-"title" - sort alphabetically ascending
-
-\
-
-
-"-title" - sort alphabetically descending
-
-\
-
-
-"-count" - sort by raindrops count descending
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections" method="put" summary="Expand/collapse all collections" %}
-{% swagger-description %}
+## Expand/collapse all collections
 
-{% endswagger-description %}
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/collections`
 
-{% swagger-parameter in="path" name="expanded" type="boolean" %}
-TRUE = expand all
+#### Path Parameters
 
-\
+| Name     | Type    | Description                                      |
+| -------- | ------- | ------------------------------------------------ |
+| expanded | boolean | <p>TRUE = expand all<br>FALSE = collapse all</p> |
 
-
-FALSE = collapse all
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/merge" method="put" summary="Merge collections" %}
-{% swagger-description %}
+## Merge collections
+
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/collections/merge`
+
 Merge multiple collections
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="to" type="number" %}
-Collection ID where listed collection 
+#### Request Body
 
-`ids`
+| Name | Type   | Description                                                |
+| ---- | ------ | ---------------------------------------------------------- |
+| to   | number | Collection ID where listed collection `ids` will be merged |
+| ids  | array  | Collection ID's                                            |
 
- will be merged
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="ids" type="array" %}
-Collection ID's
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collections/clean" method="put" summary="Remove all empty collections" %}
-{% swagger-description %}
+## Remove all empty collections
 
-{% endswagger-description %}
+<mark style="color:orange;">`PUT`</mark> `https://api.raindrop.io/rest/v1/collections/clean`
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
     "result": true,
     "count": 3
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/collection/-99" method="delete" summary="Empty Trash" %}
-{% swagger-description %}
+## Empty Trash
 
-{% endswagger-description %}
+<mark style="color:red;">`DELETE`</mark> `https://api.raindrop.io/rest/v1/collection/-99`
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "result": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/user/stats" method="get" summary="Get system collections count" %}
-{% swagger-description %}
+## Get system collections count
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/user/stats`
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "items": [
@@ -462,6 +419,6 @@ Collection ID's
   "result": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
