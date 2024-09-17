@@ -25,9 +25,9 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
 
 #### Path Parameters
 
-| Name                                           | Type   | Description   |
-| ---------------------------------------------- | ------ | ------------- |
-| collectionId<mark style="color:red;">\*</mark> | number | Collection ID |
+| Name                                           | Type   | Description                                   |
+| ---------------------------------------------- | ------ | --------------------------------------------- |
+| collectionId<mark style="color:red;">\*</mark> | number | Collection ID. Specify 0 to get all raindrops |
 
 #### Query Parameters
 
