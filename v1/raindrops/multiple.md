@@ -18,6 +18,7 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
 | page         | `Integer`        | Query parameter. 0, 1, 2, 3 ...                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | perpage      | `Integer`        | Query parameter. How many raindrops per page. 50 max                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ids          | `Array<Integer>` | You can specify exact raindrop ID's for batch update/remove methods                                                                                                                                                                                                                                                                                                                                                                                              |
+| nested       | `Boolean`        | Also include bookmarks from nested collections (true/false)                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ## Get raindrops
 
@@ -31,12 +32,13 @@ To filter, sort or limit raindrops use one of the parameters described below. Ch
 
 #### Query Parameters
 
-| Name    | Type   | Description |
-| ------- | ------ | ----------- |
-| sort    | string |             |
-| perpage | number |             |
-| page    | number |             |
-| search  | string |             |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| sort    | string  |             |
+| perpage | number  |             |
+| page    | number  |             |
+| search  | string  |             |
+| nested  | boolean |             |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -79,9 +81,10 @@ Possible fields that could be updated are described in "Body Parameters"
 
 #### Path Parameters
 
-| Name                                           | Type   | Description |
-| ---------------------------------------------- | ------ | ----------- |
-| collectionId<mark style="color:red;">\*</mark> | number |             |
+| Name                                           | Type    | Description |
+| ---------------------------------------------- | ------- | ----------- |
+| collectionId<mark style="color:red;">\*</mark> | number  |             |
+| nested                                         | boolean |             |
 
 #### Request Body
 
@@ -110,9 +113,10 @@ When `:collectionId` is **-99**, raindrops will be permanently removed!
 
 #### Path Parameters
 
-| Name                                           | Type   | Description |
-| ---------------------------------------------- | ------ | ----------- |
-| collectionId<mark style="color:red;">\*</mark> | number |             |
+| Name                                           | Type    | Description |
+| ---------------------------------------------- | ------- | ----------- |
+| collectionId<mark style="color:red;">\*</mark> | number  |             |
+| nested                                         | boolean |             |
 
 #### Query Parameters
 
