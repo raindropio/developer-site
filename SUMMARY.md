@@ -22,6 +22,7 @@
 * [Tags](v1/tags.md)
 * [Filters](v1/filters.md)
 * [Import](v1/import.md)
+* [Export](v1/export.md)
 * [Backups](v1/backups.md)
 
 ## More

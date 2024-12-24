@@ -4,16 +4,20 @@ description: Handy methods to implement import functionality
 
 # Import
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/import/url/parse" method="get" summary="Parse URL" %}
-{% swagger-description %}
+## Parse URL
+
+<mark style="color:blue;">`GET`</mark> `https://api.raindrop.io/rest/v1/import/url/parse`
+
 Parse and extract useful info from any URL
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="url" type="string" %}
-URL
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="" %}
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| url  | string | URL         |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 //Success
 {
@@ -81,19 +85,23 @@ URL
   "result": true
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/import/url/exists" method="post" summary="Check URL(s) existence " %}
-{% swagger-description %}
+## Check URL(s) existence&#x20;
+
+<mark style="color:green;">`POST`</mark> `https://api.raindrop.io/rest/v1/import/url/exists`
+
 Does specified URL's are already saved?
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="urls" type="array" %}
-URL's
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-response status="200" description="ids array contains ID of existing bookmarks" %}
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| urls | array | URL's       |
+
+{% tabs %}
+{% tab title="200 ids array contains ID of existing bookmarks" %}
 ```javascript
 //Found
 {
@@ -110,24 +118,30 @@ URL's
     "ids": []
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://api.raindrop.io" path="/rest/v1/import/file" method="post" summary="Parse HTML import file" %}
-{% swagger-description %}
+## Parse HTML import file
+
+<mark style="color:green;">`POST`</mark> `https://api.raindrop.io/rest/v1/import/file`
+
 Convert HTML bookmark file to JSON. \
 Support Nestcape, Pocket and Instapaper file formats
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="Content-Type" type="string" %}
-multipart/form-data
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="import" type="string" %}
-File
-{% endswagger-parameter %}
+| Name         | Type   | Description         |
+| ------------ | ------ | ------------------- |
+| Content-Type | string | multipart/form-data |
 
-{% swagger-response status="200" description="" %}
+#### Request Body
+
+| Name   | Type   | Description |
+| ------ | ------ | ----------- |
+| import | string | File        |
+
+{% tabs %}
+{% tab title="200 " %}
 ```javascript
 {
   "result": true,
@@ -181,5 +195,5 @@ File
   ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
