@@ -10,7 +10,7 @@ description: Export all raindrops in specific format
 
 **Path Parameters**
 
-<table><thead><tr><th width="243">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>collectionId</code><mark style="color:red;">*</mark></td><td>number</td><td>Collection ID. Specify <code>0</code> to get all raindrops</td></tr><tr><td><code>format</code><mark style="color:red;">*</mark></td><td>string</td><td><code>csv</code>, <code>html</code> or <code>zip</code></td></tr></tbody></table>
+<table><thead><tr><th width="243">Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>collectionId</code><mark style="color:red;">*</mark></td><td>number</td><td>Collection ID. Specify <code>0</code> to get all raindrops</td></tr><tr><td><code>format</code><mark style="color:red;">*</mark></td><td>string</td><td><code>txt</code>, <code>csv</code>, <code>html</code> or <code>zip</code></td></tr></tbody></table>
 
 **Query Parameters**
 
